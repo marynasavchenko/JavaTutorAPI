@@ -130,11 +130,25 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring5</artifactId>
-			<version>3.0.8.RELEASE</version>
-		</dependency>
+	<dependency>
+		<groupId>org.thymeleaf</groupId>
+		<artifactId>thymeleaf-spring5</artifactId>
+		<version>3.0.8.RELEASE</version>
+	</dependency>
+
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.16.20</version>
+    <scope>provided</scope>
+</dependency>
+		
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-maven-plugin</artifactId>
+    <version>1.16.20.0</version>
+</dependency>
 
 	</dependencies>
   
