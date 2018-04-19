@@ -1,15 +1,16 @@
 package pro.abacuspro.javatutor.entity;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
-@Entity
+@Document
 @Data
 public class JavaQuestion {
 	@Id
@@ -17,7 +18,6 @@ public class JavaQuestion {
 	private Long id;
 	
 	@JsonIgnore
-    @ManyToOne
 	private Account account;
 	
 	private String question;

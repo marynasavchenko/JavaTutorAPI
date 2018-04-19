@@ -11,10 +11,9 @@
 	<url>http://maven.apache.org</url>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.8.RELEASE</version>
-		<relativePath />
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.1.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -67,6 +66,13 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    <version>2.0.1.RELEASE</version>
+</dependency>
 
 
 		<dependency>
@@ -130,25 +136,24 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-	<dependency>
-		<groupId>org.thymeleaf</groupId>
-		<artifactId>thymeleaf-spring5</artifactId>
-		<version>3.0.8.RELEASE</version>
-	</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+			<version>3.0.8.RELEASE</version>
+		</dependency>
 
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.16.20</version>
-    <scope>provided</scope>
-</dependency>
-		
-<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok-maven-plugin</artifactId>
-    <version>1.16.20.0</version>
-</dependency>
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.16.20</version>
+		    <scope>provided</scope>
+		</dependency>
+				
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok-maven-plugin</artifactId>
+		    <version>1.16.20.0</version>
+		</dependency>
 
 	</dependencies>
   
