@@ -1,6 +1,8 @@
 package pro.abacuspro.javatutor.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.GeneratedValue;
@@ -19,18 +21,19 @@ public class Account {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private String id;
 	
 	private String username;
 	
 	@JsonIgnore
 	private String password;
 	
-    private Set<JavaQuestion> bookmarks = new HashSet<>();
+	@OneToMany
+    private List<JavaQuestion> javaquestions = new ArrayList<>();
 	
 	public Account() { } 
 
-    public Account(final String username, final String password) {
+    public Account(String username, String password) {
         this.username = username;
         this.password = password;
     }

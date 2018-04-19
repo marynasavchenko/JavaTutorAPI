@@ -15,21 +15,19 @@ import lombok.Data;
 public class JavaQuestion {
 	@Id
 	@GeneratedValue
-	private Long id;
+	private String id;
 	
 	@JsonIgnore
+	@ManyToOne
 	private Account account;
 	
 	private String question;
 	
 	private String answer;
 	
-	public JavaQuestion(){
-		
-	}
+	public JavaQuestion(){ }
 
-	public JavaQuestion(final Account account, final String question, final String answer) {
-		super();
+	public JavaQuestion(Account account, String question, String answer) {
 		this.account = account;
 		this.question = question;
 		this.answer = answer;
