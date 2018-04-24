@@ -1,4 +1,4 @@
-package pro.abacuspro.javatutor.entity;
+package pro.abacus.javatutor.repository;
 
 import static org.junit.Assert.*;
 
@@ -11,6 +11,9 @@ import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoCo
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.repository.AccountRepository;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
@@ -29,10 +32,10 @@ public class AccountRepositoryTest {
 		 account = new Account("Ann","1234pass");
 	    }
 
-	   @After
+	   /*@After
 	    public void tearDown() {
 	    	mongoTemplate.getDb().drop();
-	    }
+	    }*/
 	
 	@Test
 	public void shouldLookUpSavedAccount(){

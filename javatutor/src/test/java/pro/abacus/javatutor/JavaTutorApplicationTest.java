@@ -1,4 +1,4 @@
-package pro.abacuspro.javatutor;
+package pro.abacus.javatutor;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

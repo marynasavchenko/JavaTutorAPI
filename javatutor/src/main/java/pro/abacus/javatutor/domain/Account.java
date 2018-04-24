@@ -1,14 +1,9 @@
-package pro.abacuspro.javatutor.entity;
+package pro.abacus.javatutor.domain;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
@@ -20,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Account {
 	
 	@Id
-	@GeneratedValue
 	private String id;
 	
 	private String username;
@@ -28,7 +22,6 @@ public class Account {
 	@JsonIgnore
 	private String password;
 	
-	@OneToMany
     private List<JavaQuestion> javaquestions = new ArrayList<>();
 	
 	public Account() { } 

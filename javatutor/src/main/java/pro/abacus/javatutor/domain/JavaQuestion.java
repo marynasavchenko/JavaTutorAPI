@@ -1,9 +1,8 @@
-package pro.abacuspro.javatutor.entity;
+package pro.abacus.javatutor.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,11 +13,9 @@ import lombok.Data;
 @Data
 public class JavaQuestion {
 	@Id
-	@GeneratedValue
 	private String id;
 	
 	@JsonIgnore
-	@ManyToOne
 	private Account account;
 	
 	private String question;
