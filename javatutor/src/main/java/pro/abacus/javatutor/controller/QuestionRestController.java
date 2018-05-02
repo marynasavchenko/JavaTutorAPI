@@ -14,7 +14,7 @@ import pro.abacus.javatutor.repository.AccountRepository;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
 @RestController
-@RequestMapping("/{userId}/javaquestions")
+@RequestMapping("/")
 public class QuestionRestController {
 	
 	private JavaQuestionRepository javaQuestionRepository;
@@ -25,9 +25,13 @@ public class QuestionRestController {
 		this.javaQuestionRepository = javaQuestionRepository;
 		this.accountRepository=accountRepository;
 	}
+	@GetMapping(value ="/javaquestions")
+	public Collection<JavaQuestion> readAllJavaQuestions(){
+		return this.javaQuestionRepository.findAll();
+	}	
 	
 	//get all javaquestions
-	@GetMapping
+	@GetMapping(value ="/{userId}/javaquestions")
 	public Collection<JavaQuestion> readJavaQuestions(@PathVariable String userId){
 		return this.javaQuestionRepository.findByAccountUsername(userId);
 	}	

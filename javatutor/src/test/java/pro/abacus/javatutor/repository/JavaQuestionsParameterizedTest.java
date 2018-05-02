@@ -53,7 +53,6 @@ public class JavaQuestionsParameterizedTest {
 	@Test
 	public void shouldLookUpQuestionsByAccount(){
 		
-		
 		mongoTemplate.save(javaQuestion);
 		mongoTemplate.save(javaQuestion2);
 		List<JavaQuestion> listOfQuestions =javaQuestionRepository.findByAccountUsername("Tom");

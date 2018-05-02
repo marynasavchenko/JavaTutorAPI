@@ -1,0 +1,18 @@
+<div class="row">
+
+	<div class="col-md-5">
+		<app-question-list (questionWasSelected)="selectedQuestion = $event"></app-question-list>
+		<app-question-edit></app-question-edit>
+	</div>
+
+	<div class="col-md-7">
+		<app-question-details 
+		*ngIf="selectedQuestion;
+		else infoText"
+		[question]="selectedQuestion"> </app-question-details>
+		
+		<ng-template #infoText>
+		<p>Select a question to see the answer!</p>
+		</ng-template>
+	</div>
+</div>

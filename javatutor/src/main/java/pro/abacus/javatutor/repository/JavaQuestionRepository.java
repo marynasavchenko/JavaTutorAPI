@@ -1,5 +1,6 @@
 package pro.abacus.javatutor.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;

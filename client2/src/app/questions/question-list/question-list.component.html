@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-xs-12">
+		<button class="btn btn-success">Add new question</button>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-xs-12">
+		
+		<app-question 
+		*ngFor="let questionEl of questions" 
+		[question]="questionEl"
+		(questionSelected)="onQuestionSelected(questionEl)"> 
+		
+		</app-question>
+	</div>
+</div>
+
+
