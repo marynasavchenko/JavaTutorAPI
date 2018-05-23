@@ -1,5 +1,8 @@
 import { Question } from '../question.model';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { QuestionService } from '../question.service';
+
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-question-list',
@@ -7,21 +10,18 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./question-list.component.css']
 })
 export class QuestionListComponent implements OnInit {
+  questions: Question[];
   
-  @Output() questionWasSelected=new EventEmitter<Question>();
-  questions: Question[] = [
-    new Question('What is a Java object?','An object can be defined as a collection of variables and methods, which represent a complex entity, and operations relevant to that entity.'),
-    new Question("Question2","Answrer2")
-  ];
-
-  constructor() { }
+  constructor(private questionService: QuestionService,
+  private router: Router,
+  private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.questions=this.questionService.getQuestions();
   }
   
-  onQuestionSelected(question: Question){
-    this.questionWasSelected.emit(question);
-  
+  onNewQuestion() {
+  this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }

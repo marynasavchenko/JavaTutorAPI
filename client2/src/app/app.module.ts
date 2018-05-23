@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,6 +11,7 @@ import { QuestionComponent } from './questions/question-list/question/question.c
 import { QuestionEditComponent } from './questions/question-list/question-edit/question-edit.component';
 import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { QuestionStartComponent } from './questions/question-start/question-start.component';
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { DropdownDirective } from './shared/dropdown.directive';
     QuestionComponent,
     QuestionEditComponent,
     QuestionDetailsComponent,
-    DropdownDirective
+    DropdownDirective,
+    QuestionStartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

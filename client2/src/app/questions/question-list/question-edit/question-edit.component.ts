@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-question-edit',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-edit.component.css']
 })
 export class QuestionEditComponent implements OnInit {
+  id: number;
+  editMode=false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params)=>{
+        this.id=+params['id'];
+          this.editMode=params['id']!=null;
+        }
+      );
   }
 
 }

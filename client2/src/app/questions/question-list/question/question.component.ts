@@ -1,5 +1,5 @@
 import { Question } from '../../question.model';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-question',
@@ -8,15 +8,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
   @Input() question: Question;
-  @Output() questionSelected = new EventEmitter<void>();
+  @Input() index: number;
 
-  constructor() { }
 
   ngOnInit() {
   }
-  
-  onSelected(){
-  this.questionSelected.emit();
-  }
+ 
 
 }
