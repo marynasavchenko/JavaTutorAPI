@@ -10,17 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
   
-  selectedQuestion: Question;
+  //selectedQuestion: Question;
 
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
-    this.questionService.questionSelected
+    /*this.questionService.questionSelected
     .subscribe(
       (question: Question)=>{
       this.selectedQuestion=question;
       }
-    );
+    );*/
   }
 
 }
