@@ -1,26 +1,16 @@
 import { Question } from './question.model';
-import { QuestionService } from './question.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css'],
-  providers: [QuestionService]
+  styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
-  
-  //selectedQuestion: Question;
 
-  constructor(private questionService: QuestionService) { }
+  constructor() { }
 
   ngOnInit() {
-    /*this.questionService.questionSelected
-    .subscribe(
-      (question: Question)=>{
-      this.selectedQuestion=question;
-      }
-    );*/
   }
 
 }

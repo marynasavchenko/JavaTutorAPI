@@ -2,7 +2,7 @@ import {QuestionService} from '../../question.service';
 import {Question} from '../../question.model';
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-question-edit',
@@ -14,7 +14,10 @@ export class QuestionEditComponent implements OnInit {
   editMode = false;
   questionForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private questionService: QuestionService) {}
+  constructor(private route: ActivatedRoute,
+     private questionService: QuestionService,
+     private router: Router
+   ) {}
 
   ngOnInit() {
     this.route.params
@@ -36,6 +39,11 @@ export class QuestionEditComponent implements OnInit {
     } else {
       this.questionService.addQuestion(this.questionForm.value);
     }
+    this.onCancel();
+  }
+  
+   onCancel() {
+  this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {
@@ -53,5 +61,7 @@ export class QuestionEditComponent implements OnInit {
       'answer': new FormControl(javaAnswer, Validators.required)
     });
   }
+  
+ 
 
 }

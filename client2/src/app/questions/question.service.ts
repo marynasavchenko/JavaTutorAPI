@@ -27,5 +27,11 @@ export class QuestionService {
     this.questions[index]= newQuestion;
     this.questionsChanged.next(this.questions.slice());
   }
+  
+  deleteQuestion(index: number) {
+    this.questions.splice(index, 1);
+    this.questionsChanged.next(this.questions.slice());
+  
+  }
 
 }

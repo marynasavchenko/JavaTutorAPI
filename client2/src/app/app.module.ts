@@ -12,6 +12,7 @@ import { QuestionEditComponent } from './questions/question-list/question-edit/q
 import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { QuestionStartComponent } from './questions/question-start/question-start.component';
+import { QuestionService } from './questions/question.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -35,7 +36,7 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

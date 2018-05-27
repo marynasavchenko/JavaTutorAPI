@@ -29,5 +29,10 @@ export class QuestionDetailsComponent implements OnInit {
   onEditQuestion() {
   this.router.navigate(['edit'], {relativeTo: this.route});
   }
+  
+  onDeleteQuestion() {
+  this.questionService.deleteQuestion(this.id);
+    this.router.navigate(['/questions'], {relativeTo: this.route});
+  }
 
 }

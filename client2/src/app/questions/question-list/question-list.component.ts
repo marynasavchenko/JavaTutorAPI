@@ -1,23 +1,25 @@
 import { Question } from '../question.model';
 import { QuestionService } from '../question.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-question-list',
   templateUrl: './question-list.component.html',
   styleUrls: ['./question-list.component.css']
 })
-export class QuestionListComponent implements OnInit {
+export class QuestionListComponent implements OnInit, OnDestroy {
   questions: Question[];
+  subscription: Subscription;
   
   constructor(private questionService: QuestionService,
   private router: Router,
   private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.questionService.questionsChanged.subscribe(
+    this.subscription = this.questionService.questionsChanged.subscribe(
       (questions: Question[])=>{
       this.questions=questions;
       }
@@ -29,4 +31,7 @@ export class QuestionListComponent implements OnInit {
   this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  ngOnDestroy() {
+  this.subscription.unsubscribe();
+  }
 }
