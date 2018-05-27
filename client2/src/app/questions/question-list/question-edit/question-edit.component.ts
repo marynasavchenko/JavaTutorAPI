@@ -1,4 +1,5 @@
 import {QuestionService} from '../../question.service';
+import {Question} from '../../question.model';
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -27,9 +28,16 @@ export class QuestionEditComponent implements OnInit {
   }
   
   onSubmit() {
-    
+    //const newQuestion = new Question(
+      //this.questionForm.value['question'],
+      //this.questionForm.value['answer']);
+    if (this.editMode) {
+      this.questionService.updateQuestion(this.id, this.questionForm.value);
+    } else {
+      this.questionService.addQuestion(this.questionForm.value);
+    }
   }
-  
+
   private initForm() {
     let javaQuestion = '';
     let javaAnswer = '';

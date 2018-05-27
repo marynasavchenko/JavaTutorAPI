@@ -17,6 +17,11 @@ export class QuestionListComponent implements OnInit {
   private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.questionService.questionsChanged.subscribe(
+      (questions: Question[])=>{
+      this.questions=questions;
+      }
+    );
     this.questions=this.questionService.getQuestions();
   }
   
