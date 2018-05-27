@@ -12,6 +12,8 @@ import { QuestionEditComponent } from './questions/question-list/question-edit/q
 import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { QuestionStartComponent } from './questions/question-start/question-start.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -28,7 +30,10 @@ import { QuestionStartComponent } from './questions/question-start/question-star
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

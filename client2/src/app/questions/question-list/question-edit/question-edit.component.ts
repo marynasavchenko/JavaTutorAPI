@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {QuestionService} from '../../question.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-question-edit',
@@ -8,18 +10,40 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class QuestionEditComponent implements OnInit {
   id: number;
-  editMode=false;
+  editMode = false;
+  questionForm: FormGroup;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private questionService: QuestionService) {}
 
   ngOnInit() {
     this.route.params
       .subscribe(
-        (params: Params)=>{
-        this.id=+params['id'];
-          this.editMode=params['id']!=null;
-        }
+      (params: Params) => {
+        this.id = +params['id'];
+        this.editMode = params['id'] != null;
+        this.initForm(); 
+      }
       );
+  }
+  
+  onSubmit() {
+  console.log(this.questionForm);
+  }
+  
+  private initForm() {
+    let javaQuestion = '';
+    let javaAnswer = '';
+
+    if (this.editMode) {
+      const question = this.questionService.getQuestion(this.id);
+      javaQuestion = question.question;
+      javaAnswer = question.answer;
+    }
+
+    this.questionForm = new FormGroup({
+      'question': new FormControl(javaQuestion),
+      'answer': new FormControl(javaAnswer)
+    });
   }
 
 }
