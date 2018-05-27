@@ -1,6 +1,6 @@
 import {QuestionService} from '../../question.service';
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
@@ -27,7 +27,7 @@ export class QuestionEditComponent implements OnInit {
   }
   
   onSubmit() {
-  console.log(this.questionForm);
+    
   }
   
   private initForm() {
@@ -41,8 +41,8 @@ export class QuestionEditComponent implements OnInit {
     }
 
     this.questionForm = new FormGroup({
-      'question': new FormControl(javaQuestion),
-      'answer': new FormControl(javaAnswer)
+      'question': new FormControl(javaQuestion, Validators.required),
+      'answer': new FormControl(javaAnswer, Validators.required)
     });
   }
 
