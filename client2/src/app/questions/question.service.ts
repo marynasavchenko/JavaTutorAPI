@@ -17,6 +17,11 @@ export class QuestionService {
   getQuestion(index: number) {
     return this.questions[index];
   }
+  
+  setQuestions(questions: Question[]) {
+  this.questions=questions;
+    this.questionsChanged.next(this.questions.slice());
+  }
 
   addQuestion(question: Question) {
     this.questions.push(question);

@@ -13,8 +13,11 @@ import { QuestionDetailsComponent } from './questions/question-details/question-
 import { DropdownDirective } from './shared/dropdown.directive';
 import { QuestionStartComponent } from './questions/question-start/question-start.component';
 import { QuestionService } from './questions/question.service';
+import { DataStorageService } from './shared/data-storage.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { HttpModule } from '@angular/http';
     QuestionEditComponent,
     QuestionDetailsComponent,
     DropdownDirective,
-    QuestionStartComponent
+    QuestionStartComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

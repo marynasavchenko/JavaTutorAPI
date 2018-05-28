@@ -1,3 +1,4 @@
+import { SignupComponent } from './auth/signup/signup.component';
 import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { QuestionEditComponent } from './questions/question-list/question-edit/question-edit.component';
 import { QuestionStartComponent } from './questions/question-start/question-start.component';
@@ -13,8 +14,8 @@ const appRoutes: Routes = [
   {path: 'new', component: QuestionEditComponent},
     {path: ':id', component: QuestionDetailsComponent},
     {path: ':id/edit', component: QuestionEditComponent}
-  ]
-  }
+  ]},
+  {path:'signup', component: SignupComponent}
 ];
 
 @NgModule({
