@@ -1,3 +1,4 @@
+import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { QuestionDetailsComponent } from './questions/question-details/question-details.component';
 import { QuestionEditComponent } from './questions/question-list/question-edit/question-edit.component';
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
     {path: ':id', component: QuestionDetailsComponent},
     {path: ':id/edit', component: QuestionEditComponent}
   ]},
-  {path:'signup', component: SignupComponent}
+  {path:'signup', component: SignupComponent},
+  {path:'signin', component: SigninComponent},
 ];
 
 @NgModule({

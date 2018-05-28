@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AuthService } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
@@ -41,7 +42,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [QuestionService, DataStorageService],
+  providers: [QuestionService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
