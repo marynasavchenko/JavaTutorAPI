@@ -15,6 +15,9 @@ export class AuthService {
   }
 
   signinUser(username: string, password: string) {
-
+      const body = {username, password};
+      var headers = new HttpHeaders();
+      headers.set('Content-type', 'application/json');
+      return this.http.post('/api/signin', body, {headers: headers});
   }
 }

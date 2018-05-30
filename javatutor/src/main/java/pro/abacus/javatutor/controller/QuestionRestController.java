@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,20 +41,10 @@ public class QuestionRestController {
 		
 	}
 	
-	//get all javaquestions
 	@GetMapping(value ="/{userId}/javaquestions")
 	public Collection<JavaQuestion> readJavaQuestions(@PathVariable String userId){
 		return this.javaQuestionRepository.findByAccountUsername(userId);
 	}	
 	
-	@PostMapping(value="/signup", consumes="application/json")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Account registerUser(@RequestBody Account account) {
-		
-		return accountRepository.save(account);
-	}
 	
-	@GetMapping(value="/signup")
-	public void register() {}
-
 }
