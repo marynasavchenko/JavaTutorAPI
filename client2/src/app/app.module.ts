@@ -16,7 +16,7 @@ import { QuestionStartComponent } from './questions/question-start/question-star
 import { QuestionService } from './questions/question.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 
@@ -39,7 +39,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [QuestionService, DataStorageService, AuthService],

@@ -31,9 +31,6 @@ export class QuestionEditComponent implements OnInit {
   }
   
   onSubmit() {
-    //const newQuestion = new Question(
-      //this.questionForm.value['question'],
-      //this.questionForm.value['answer']);
     if (this.editMode) {
       this.questionService.updateQuestion(this.id, this.questionForm.value);
     } else {

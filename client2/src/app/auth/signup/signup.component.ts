@@ -1,7 +1,9 @@
 import { AuthService } from '../auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {Response} from '@angular/http';
 
+@Injectable()
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,9 +17,14 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(form: NgForm) {
-    const email= form.value.email;
+    const username= form.value.username;
     const password= form.value.password;
-    this.authService.signupUser(email, password);
+    this.authService.signupUser(username, password)
+      .subscribe(
+        (response: Response)=>{
+        console.log(response);
+        }
+    );
   
   }
 }

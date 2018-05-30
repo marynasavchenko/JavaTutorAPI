@@ -19,7 +19,7 @@ public class Account {
 	
 	private String username;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	private String password;
 	
     private List<JavaQuestion> javaquestions = new ArrayList<>();
