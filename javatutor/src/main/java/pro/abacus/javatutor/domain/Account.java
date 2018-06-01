@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Document
 public class Account {
 	
@@ -31,6 +32,12 @@ public class Account {
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    
+    public Account (Account account) {
+    	this.username = account.getUsername();
+    	this.password=account.getPassword();
+    	this.authorities=account.getUserAuthorities();
     }
 
 	public String getId() {
@@ -57,13 +64,14 @@ public class Account {
 		this.password = password;
 	}
 
-	public Set<Authority> getAuthorities() {
+	public Set<Authority> getUserAuthorities() {
 		return authorities;
 	}
 
-	public void setAuthorities(Set<Authority> authorities) {
+	public void setUserAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
+	
 
 	public List<JavaQuestion> getJavaquestions() {
 		return javaquestions;
