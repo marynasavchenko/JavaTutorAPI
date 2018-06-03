@@ -12,22 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pro.abacus.javatutor.domain.Account;
 import pro.abacus.javatutor.repository.AccountRepository;
+import pro.abacus.javatutor.services.AccountService;
 
 @RestController
 @RequestMapping("/api")
 public class RegistrationController {
 
-	private AccountRepository accountRepository;
+	private AccountService accountService;
+	//private AccountRepository accountRepository;
 
 	@Autowired
-	public RegistrationController(AccountRepository accountRepository) {
-		this.accountRepository = accountRepository;
+	public RegistrationController(AccountService accountService) {
+		this.accountService=accountService;
 	}
 
 	@PostMapping(value = "/signup", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Account registerUser(@RequestBody Account account) {
-		return accountRepository.save(account);
+		return accountService.saveAccount(account);
 	}
 
 	@GetMapping(value = "/signup")
