@@ -2,6 +2,8 @@ package pro.abacus.javatutor.repository;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.Authority;
 import pro.abacus.javatutor.repository.AccountRepository;
 
 @RunWith(SpringRunner.class)
@@ -20,6 +23,8 @@ import pro.abacus.javatutor.repository.AccountRepository;
 public class AccountRepositoryTest {
 	
 	private Account account;
+	
+	private Authority authority;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -29,7 +34,10 @@ public class AccountRepositoryTest {
 	
 	 @Before
 	    public void setUp() {
-		 account = new Account("Ann","1234pass");
+		 authority = new Authority("user");
+		 HashSet<Authority> authorities = new HashSet<>();
+		 authorities.add(authority);
+		 account = new Account("Ann","1234pass", authorities);
 	    }
 
 	   /*@After

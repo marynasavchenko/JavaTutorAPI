@@ -6,26 +6,27 @@ import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "authority")
+@Document
 public class Authority {
 
-	
-	@NotNull
-    @Size(max = 50)
-    @Id
-    private String name;
+
+    private String authority;
+    
+    public Authority(String authority) {
+    	this.authority=authority;
+    }
 
     public String getName() {
-        return name;
+        return authority;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.authority = name;
     }
 
 	@Override
 	public String toString() {
-		return "Authority [name=" + name + "]";
+		return "Authority [name=" + authority + "]";
 	}
     
     

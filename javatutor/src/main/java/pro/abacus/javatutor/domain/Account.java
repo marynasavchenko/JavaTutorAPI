@@ -33,6 +33,11 @@ public class Account {
         this.username = username;
         this.password = password;
     }
+    public Account(String username, String password, Set<Authority> authorities) {
+        this.username = username;
+        this.password = password;
+        this.authorities=authorities;
+    }
     
     public Account (Account account) {
     	this.username = account.getUsername();
