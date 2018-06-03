@@ -16,17 +16,17 @@ public class Authority {
     	this.authority=authority;
     }
 
-    public String getName() {
+    public String getAuthority() {
         return authority;
     }
 
-    public void setName(String name) {
-        this.authority = name;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
 	@Override
 	public String toString() {
-		return "Authority [name=" + authority + "]";
+		return "Authority [authority=" + authority + "]";
 	}
     
     
