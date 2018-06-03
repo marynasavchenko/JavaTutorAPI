@@ -51,13 +51,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        http.csrf().disable();
 	        http 
 	        .authorizeRequests()
-            .antMatchers("/api/javaquestions/**")  
+            .antMatchers("/api/test/**")  
             .authenticated()
             .anyRequest()
             .permitAll()
             .and()
             .formLogin()
-             .loginPage("/signin")
+             .loginPage("/api/signin")
             .permitAll()
             .and()
             .logout()

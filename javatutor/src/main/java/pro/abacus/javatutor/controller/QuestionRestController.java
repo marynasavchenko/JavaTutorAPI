@@ -2,6 +2,7 @@ package pro.abacus.javatutor.controller;
 
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
 @RestController
 @RequestMapping("/api")
+
 public class QuestionRestController {
 
 	private JavaQuestionRepository javaQuestionRepository;
@@ -30,16 +32,16 @@ public class QuestionRestController {
 	public Collection<JavaQuestion> readAllJavaQuestions() {
 		return this.javaQuestionRepository.findAll();
 	}
-
+	//@PreAuthorize("hasAuthority('ROLE_USER')")
 	@PostMapping(value = "/javaquestions", consumes = "application/json")
 	public void writeJavaQuestions(@RequestBody Collection<JavaQuestion> javaQuestions) {
 		javaQuestionRepository.saveAll(javaQuestions);
 
 	}
 
-	@GetMapping(value = "/{userId}/javaquestions")
+	/*@GetMapping(value = "/{userId}/javaquestions")
 	public Collection<JavaQuestion> readJavaQuestions(@PathVariable String userId) {
 		return this.javaQuestionRepository.findByAccountUsername(userId);
-	}
+	}*/
 
 }

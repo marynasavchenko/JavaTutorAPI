@@ -36,7 +36,12 @@ public class RegistrationController {
 
 	@PostMapping(value = "/signin", consumes = "application/json")
 	public @ResponseBody void processAccount(Account account) {
+		
 		System.out.println("In signin ");
+	}
+	
+	@GetMapping(value = "/signin")
+	public @ResponseBody void signin() {
 	}
 
 }

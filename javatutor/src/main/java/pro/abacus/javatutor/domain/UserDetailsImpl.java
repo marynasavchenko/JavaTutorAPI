@@ -27,12 +27,12 @@ public class UserDetailsImpl extends Account implements UserDetails {
 	
 	@Override
 	public String getPassword() {
-		return this.getPassword();
+		return super.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return this.getUsername();
+		return super.getUsername();
 	}
 
 	@Override

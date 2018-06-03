@@ -1,6 +1,6 @@
 import {DataStorageService} from '../shared/data-storage.service';
 import {Component, OnInit, Output} from '@angular/core';
-import {Response} from '@angular/http';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   onSaveData() {
     this.dataStorageService.storeQuestions()
       .subscribe(
-        (response: Response)=>{
+        (response)=>{
         console.log(response);
         }
     );
