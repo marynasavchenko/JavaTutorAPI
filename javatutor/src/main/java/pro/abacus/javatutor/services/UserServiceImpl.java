@@ -7,29 +7,29 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.repository.AccountRepository;
+import pro.abacus.javatutor.repository.UserRepository;
 import pro.abacus.javatutor.repository.AuthorityRepository;
 
 @Service
-public class AccountServiceImpl implements AccountService {
+public class UserServiceImpl implements UserService {
 
-	private AccountRepository accountRepository;
+	private UserRepository userRepository;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	private AuthorityRepository authorityRepository;
 
 	@Autowired
-	public AccountServiceImpl(AccountRepository accountRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
+	public UserServiceImpl(UserRepository accountRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
 			AuthorityRepository authorityRepository) {
-		this.accountRepository = accountRepository;
+		this.userRepository = accountRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.authorityRepository = authorityRepository;
 	}
 
 	@Override
-	public User saveAccount(User account) {
-		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
-		account.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
-		return accountRepository.save(account);
+	public User saveAccount(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
+		return userRepository.save(user);
 
 	}
 

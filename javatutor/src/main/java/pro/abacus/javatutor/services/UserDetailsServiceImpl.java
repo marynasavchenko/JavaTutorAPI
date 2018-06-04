@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.UserDetailsImpl;
-import pro.abacus.javatutor.repository.AccountRepository;
+import pro.abacus.javatutor.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	final static Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
-	private AccountRepository accountRepository;
+	private UserRepository accountRepository;
 
 	@Autowired
-	public UserDetailsServiceImpl(AccountRepository accountRepository) {
+	public UserDetailsServiceImpl(UserRepository accountRepository) {
 		this.accountRepository = accountRepository;
 	}
 

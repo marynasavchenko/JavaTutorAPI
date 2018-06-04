@@ -39,10 +39,10 @@ public class User {
         this.authorities=authorities;
     }
     
-    public User (User account) {
-    	this.username = account.getUsername();
-    	this.password=account.getPassword();
-    	this.authorities=account.getUserAuthorities();
+    public User (User user) {
+    	this.username = user.getUsername();
+    	this.password=user.getPassword();
+    	this.authorities=user.getUserAuthorities();
     }
 
 	public String getId() {
@@ -88,7 +88,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", username=" + username + ", password=" + password + ", authorities="
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", authorities="
 				+ authorities + ", javaquestions=" + javaquestions + "]";
 	}
 

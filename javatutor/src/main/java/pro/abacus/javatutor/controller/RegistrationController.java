@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.services.AccountService;
+import pro.abacus.javatutor.services.UserService;
 
 @RestController
 @RequestMapping("/api")
@@ -22,10 +22,10 @@ public class RegistrationController {
 	
 	final static Logger log = LoggerFactory.getLogger( RegistrationController.class);
 
-	private AccountService accountService;
+	private UserService accountService;
 
 	@Autowired
-	public RegistrationController(AccountService accountService) {
+	public RegistrationController(UserService accountService) {
 		this.accountService=accountService;
 	}
 

@@ -12,8 +12,8 @@ public class UserDetailsImpl extends User implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
-	public UserDetailsImpl(final User account) {
-		super(account);
+	public UserDetailsImpl(final User user) {
+		super(user);
 	}
 
 	@Override

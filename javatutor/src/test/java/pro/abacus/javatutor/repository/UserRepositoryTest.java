@@ -16,11 +16,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.Authority;
-import pro.abacus.javatutor.repository.AccountRepository;
+import pro.abacus.javatutor.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
-public class AccountRepositoryTest {
+public class UserRepositoryTest {
 	
 	private User account;
 	
@@ -30,7 +30,7 @@ public class AccountRepositoryTest {
 	private MongoTemplate mongoTemplate;
 	
 	@Autowired
-	AccountRepository accountRepository;
+	UserRepository accountRepository;
 	
 	 @Before
 	    public void setUp() {

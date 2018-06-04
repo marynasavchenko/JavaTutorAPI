@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pro.abacus.javatutor.domain.JavaQuestion;
-import pro.abacus.javatutor.repository.AccountRepository;
+import pro.abacus.javatutor.repository.UserRepository;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
 @RestController
@@ -20,10 +20,10 @@ import pro.abacus.javatutor.repository.JavaQuestionRepository;
 public class QuestionRestController {
 
 	private JavaQuestionRepository javaQuestionRepository;
-	private AccountRepository accountRepository;
+	private UserRepository accountRepository;
 
 	@Autowired
-	public QuestionRestController(JavaQuestionRepository javaQuestionRepository, AccountRepository accountRepository) {
+	public QuestionRestController(JavaQuestionRepository javaQuestionRepository, UserRepository accountRepository) {
 		this.javaQuestionRepository = javaQuestionRepository;
 		this.accountRepository = accountRepository;
 	}
