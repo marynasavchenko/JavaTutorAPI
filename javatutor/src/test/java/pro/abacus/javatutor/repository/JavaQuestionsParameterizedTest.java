@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import junitparams.JUnitParamsRunner;
 
 import junitparams.FileParameters;
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.JavaQuestion;
 
 @RunWith(SpringRunner.class)
@@ -25,9 +25,9 @@ public class JavaQuestionsParameterizedTest {
 	private JavaQuestion javaQuestion;
 	private JavaQuestion javaQuestion2;
 	
-	private Account account1;
-	private Account account2;
-	private Account account3;
+	private User account1;
+	private User account2;
+	private User account3;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -37,9 +37,9 @@ public class JavaQuestionsParameterizedTest {
 	
 	@Before
 	public void setUp(){
-		account1 = new Account ("Tom","12345678");
-		account2 = new Account ("Ann","98765421");
-		account3 = new Account ("Jeremy","12345678");
+		account1 = new User ("Tom","12345678");
+		account2 = new User ("Ann","98765421");
+		account3 = new User ("Jeremy","12345678");
 		javaQuestion = new JavaQuestion(account1, "question1", "answer1");
 		javaQuestion2 = new JavaQuestion(account2, "question2", "answer2");
 		

@@ -2,10 +2,10 @@ package pro.abacus.javatutor.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 
-public interface AccountRepository extends MongoRepository<Account, String> {
+public interface AccountRepository extends MongoRepository<User, String> {
 	
-	public Account findByUsername(String username);
+	public User findByUsername(String username);
 
 }

@@ -16,7 +16,7 @@ public class JavaQuestion {
 	private String id;
 	
 	@JsonIgnore
-	private Account account;
+	private User account;
 	
 	private String question;
 	
@@ -24,7 +24,7 @@ public class JavaQuestion {
 	
 	public JavaQuestion(){ }
 
-	public JavaQuestion(Account account, String question, String answer) {
+	public JavaQuestion(User account, String question, String answer) {
 		this.account = account;
 		this.question = question;
 		this.answer = answer;

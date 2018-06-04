@@ -15,7 +15,7 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
@@ -26,7 +26,7 @@ public class JavaQuestionRepositoryTest {
 	private JavaQuestion javaQuestion;
 	private JavaQuestion javaQuestion2;
 	
-	private Account account;
+	private User account;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -36,7 +36,7 @@ public class JavaQuestionRepositoryTest {
 	
 	@Before
 	public void setUp(){
-		account = new Account ("Tom","12345678");
+		account = new User ("Tom","12345678");
 		javaQuestion = new JavaQuestion(account,"question1","answer1");
 		javaQuestion2 = new JavaQuestion(account,"question2","answer2");
 	}

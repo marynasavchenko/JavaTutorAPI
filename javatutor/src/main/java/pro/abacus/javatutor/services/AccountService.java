@@ -1,9 +1,9 @@
 package pro.abacus.javatutor.services;
 
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 
 public interface AccountService {
 	
-	Account saveAccount(Account account);
+	User saveAccount(User account);
 
 }

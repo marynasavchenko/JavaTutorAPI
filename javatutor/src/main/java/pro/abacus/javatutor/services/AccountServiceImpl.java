@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.repository.AccountRepository;
 import pro.abacus.javatutor.repository.AuthorityRepository;
 
@@ -26,10 +26,9 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account saveAccount(Account account) {
+	public User saveAccount(User account) {
 		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
 		account.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
-		System.out.println(account.getUserAuthorities().toString());
 		return accountRepository.save(account);
 
 	}

@@ -8,11 +8,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-public class UserDetailsImpl extends Account implements UserDetails {
+public class UserDetailsImpl extends User implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
-	public UserDetailsImpl(final Account account) {
+	public UserDetailsImpl(final User account) {
 		super(account);
 	}
 
@@ -20,7 +20,7 @@ public class UserDetailsImpl extends Account implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return getUserAuthorities()
 				.stream()
-				.map(authority ->new SimpleGrantedAuthority("ROLE"+ authority.getName()))
+				.map(authority ->new SimpleGrantedAuthority("ROLE"+ authority.getAuthority()))
 				.collect(Collectors.toList());
 	}
 	

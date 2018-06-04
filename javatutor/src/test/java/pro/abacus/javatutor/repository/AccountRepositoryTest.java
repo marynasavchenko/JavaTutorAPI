@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import pro.abacus.javatutor.domain.Account;
+import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.Authority;
 import pro.abacus.javatutor.repository.AccountRepository;
 
@@ -22,7 +22,7 @@ import pro.abacus.javatutor.repository.AccountRepository;
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 public class AccountRepositoryTest {
 	
-	private Account account;
+	private User account;
 	
 	private Authority authority;
 	
@@ -37,7 +37,7 @@ public class AccountRepositoryTest {
 		 authority = new Authority("user");
 		 HashSet<Authority> authorities = new HashSet<>();
 		 authorities.add(authority);
-		 account = new Account("Ann","1234pass", authorities);
+		 account = new User("Ann","1234pass", authorities);
 	    }
 
 	   /*@After
@@ -49,7 +49,7 @@ public class AccountRepositoryTest {
 	public void shouldLookUpSavedAccount(){
 		
 		mongoTemplate.save(account);
-		Account foundAccount =accountRepository.findByUsername("Ann");
+		User foundAccount =accountRepository.findByUsername("Ann");
 		assertEquals("1234pass", foundAccount.getPassword());
 	}
 	

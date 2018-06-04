@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Document
-public class Account {
+public class User {
 	
 	@Id
 	private String id;
@@ -27,19 +27,19 @@ public class Account {
 	
     private List<JavaQuestion> javaquestions = new ArrayList<>();
 	
-	public Account() { } 
+	public User() { } 
 
-    public Account(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-    public Account(String username, String password, Set<Authority> authorities) {
+    public User(String username, String password, Set<Authority> authorities) {
         this.username = username;
         this.password = password;
         this.authorities=authorities;
     }
     
-    public Account (Account account) {
+    public User (User account) {
     	this.username = account.getUsername();
     	this.password=account.getPassword();
     	this.authorities=account.getUserAuthorities();
