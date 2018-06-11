@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
+
 @Injectable()
 export class AuthService {
 
@@ -16,15 +17,14 @@ export class AuthService {
         return this.http.post( '/api/signup', credentials, { headers: headers } );
     }
 
-    signinUser( username: string, password: string ) {
-        const credentials = { username, password };
-        const headers = new HttpHeaders();
-        headers.set( 'Content-type', 'application/json' );
-        headers.set( 'Authorization', 'my-auth-token' );
-        return this.http.post( '/api/signin', credentials, { headers: headers } )
-        //.pipe(catchError(this.handleError())
-    ;
-     
+    signinUser( username: string, password: string ): Observable<any> {
+
+        const data = 'username=' + encodeURIComponent( username ) +
+            '&password=' + encodeURIComponent( password ) + '&submit=Login';
+        const headers = new HttpHeaders().set( 'Content-Type', 'application/x-www-form-urlencoded' );
+
+        return this.http.post( 'api/signin', data, { headers } );
+
     }
 
 } 
