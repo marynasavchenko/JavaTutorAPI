@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -27,6 +28,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.web.filter.CorsFilter;
 
 import pro.abacus.javatutor.controller.RegistrationController;
+import pro.abacus.javatutor.security.AuthSuccessHandler;
 import pro.abacus.javatutor.services.UserDetailsServiceImpl;
 
 @Configuration
@@ -44,6 +46,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public SecurityConfiguration(UserDetailsServiceImpl userDetailsService) {
 		this.userDetailsService = userDetailsService;
+	}
+	
+	@Bean
+	public AuthSuccessHandler authSuccessHandler() {
+		return new AuthSuccessHandler();
 	}
 	
 	@Bean
@@ -73,9 +80,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	      http 
             .formLogin()
             .loginProcessingUrl("/api/signin")
+            .successHandler(authSuccessHandler())
             .usernameParameter("username")
             .passwordParameter("password")
             .permitAll()
+            .and()
+            .rememberMe()
 	      .and()
 	        .headers()
 	        .frameOptions()
@@ -89,8 +99,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .anyRequest()
             .permitAll()
             .and()
-            .logout();
-            //.logoutSuccessUrl("/");
+            .logout()
+            .logoutUrl("/api/logout")
+            .logoutSuccessUrl("/api/signin").permitAll()
+            .permitAll();
+            
 	}
 	
 	@Bean

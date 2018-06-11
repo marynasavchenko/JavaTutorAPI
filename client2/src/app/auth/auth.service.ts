@@ -28,12 +28,13 @@ export class AuthService {
 
     }
     
-    logout() {
+    logout(): Observable<any> {
+        return this.http.post('api/logout', {}, { observe: 'response' });
         
     }
     
     isAuthenticated() {
-        return this.tocken!=null;
+        return this.token!=null;
     }
 
 } 
