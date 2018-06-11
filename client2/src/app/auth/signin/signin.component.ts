@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
       const password = form.value.password;
       this.authService.signinUser( username, password ).subscribe(
           ( response) => {
-              console.log( response + username );
+              console.log( response);
           }
       );
   }

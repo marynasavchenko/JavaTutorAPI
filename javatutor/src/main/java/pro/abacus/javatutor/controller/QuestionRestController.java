@@ -16,7 +16,7 @@ import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
 @RestController
 @RequestMapping("/api")
-
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class QuestionRestController {
 
 	private JavaQuestionRepository javaQuestionRepository;
@@ -32,7 +32,8 @@ public class QuestionRestController {
 	public Collection<JavaQuestion> readAllJavaQuestions() {
 		return this.javaQuestionRepository.findAll();
 	}
-	//@PreAuthorize("hasAuthority('ROLE_USER')")
+	
+	
 	@PostMapping(value = "/javaquestions", consumes = "application/json")
 	public void writeJavaQuestions(@RequestBody Collection<JavaQuestion> javaQuestions) {
 		javaQuestionRepository.saveAll(javaQuestions);
