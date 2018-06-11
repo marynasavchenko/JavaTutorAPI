@@ -16,7 +16,7 @@ import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
 @RestController
 @RequestMapping("/api")
-//@PreAuthorize("hasAuthority('ROLE_USER')")
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class QuestionRestController {
 
 	private JavaQuestionRepository javaQuestionRepository;

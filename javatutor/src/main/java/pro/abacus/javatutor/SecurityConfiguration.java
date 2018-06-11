@@ -29,6 +29,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import pro.abacus.javatutor.controller.RegistrationController;
 import pro.abacus.javatutor.security.AuthSuccessHandler;
+import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
 import pro.abacus.javatutor.services.UserDetailsServiceImpl;
 
 @Configuration
@@ -51,6 +52,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Bean
 	public AuthSuccessHandler authSuccessHandler() {
 		return new AuthSuccessHandler();
+	}
+	
+	@Bean
+	public LogoutSuccessHandlerImpl logoutSuccessHandlerImpl(){
+		return new LogoutSuccessHandlerImpl();
 	}
 	
 	@Bean
@@ -101,7 +107,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
             .logout()
             .logoutUrl("/api/logout")
-            .logoutSuccessUrl("/api/signin").permitAll()
+            .logoutSuccessHandler(logoutSuccessHandlerImpl())
             .permitAll();
             
 	}
