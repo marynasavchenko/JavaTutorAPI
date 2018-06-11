@@ -1,6 +1,7 @@
 import {DataStorageService} from '../shared/data-storage.service';
 import {Component, OnInit, Output} from '@angular/core';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,8 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataStorageService: DataStorageService) {}
+  constructor(private dataStorageService: DataStorageService, 
+          private authService: AuthService ) {}
   ngOnInit() {
   }
 

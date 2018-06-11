@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class AuthService {
 
     authenticated = false;
+    token: string;
 
     constructor( private http: HttpClient ) { }
 
@@ -25,6 +26,14 @@ export class AuthService {
 
         return this.http.post( 'api/signin', data, { headers } );
 
+    }
+    
+    logout() {
+        
+    }
+    
+    isAuthenticated() {
+        return this.tocken!=null;
     }
 
 } 
