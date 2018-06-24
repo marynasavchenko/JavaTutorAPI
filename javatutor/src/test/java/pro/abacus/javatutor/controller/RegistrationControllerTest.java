@@ -1,6 +1,6 @@
 package pro.abacus.javatutor.controller;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.anonymous;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -15,18 +15,26 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import pro.abacus.javatutor.controller.RegistrationController;
+import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.services.UserService;
+
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(RegistrationController.class)
 @AutoConfigureMockMvc(secure = false)
 public class RegistrationControllerTest {
 
+	@MockBean
+	private UserService userService;
+	
+	@MockBean
+	private User user;
+	
 	@Autowired
 	private MockMvc mockMvc;
 
-	@MockBean
-	private UserService accountService;
+	@Autowired
+	private RegistrationController registrationController = new RegistrationController(userService);
 
 	private static String createUserInJson(String name, String password) {
 		return "{ \"name\": \"" + name + "\", " + 
@@ -42,6 +50,11 @@ public class RegistrationControllerTest {
 				.andExpect(status().isOk());
 	}
 	
-	
+	@Test
+	public void shouldSaveUser() throws Exception {
+		registrationController.registerUser(user);
+
+		verify(userService).saveAccount(user);
+	}
 
 }
