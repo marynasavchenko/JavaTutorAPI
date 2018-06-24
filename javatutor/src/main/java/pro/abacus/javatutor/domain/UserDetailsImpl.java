@@ -3,12 +3,17 @@ package pro.abacus.javatutor.domain;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import pro.abacus.javatutor.SecurityConfiguration;
+
 
 public class UserDetailsImpl extends User implements UserDetails {
+	final static Logger log = LoggerFactory.getLogger(UserDetailsImpl.class);
 
 	private static final long serialVersionUID = 1L;
 	
@@ -22,6 +27,7 @@ public class UserDetailsImpl extends User implements UserDetails {
 				.stream()
 				.map(authority ->new SimpleGrantedAuthority("ROLE"+ authority.getAuthority()))
 				.collect(Collectors.toList());
+		
 	}
 	
 	

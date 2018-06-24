@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -45,12 +46,12 @@ public class SecurityIntegrationTest {
 				.andExpect(authenticated());
 	}
 		
-	@Test
+	/*@Test
 	public void loginInvalidUser() throws Exception {
 		this.mockMvc.perform(formLogin("/api/signin").user("invalid").password("invalid"))
 				.andExpect(unauthenticated())
 				.andExpect(status().is3xxRedirection());
-	}
+	}*/
 	
 	
 	@Test
@@ -59,8 +60,20 @@ public class SecurityIntegrationTest {
 		this.mockMvc.perform(get("/api/javaquestions/"))
 				.andExpect(authenticated());
 	}
-
 	
+	@Test
+	public void loginUserAccessProtected() throws Exception {
+		MvcResult mvcResult = this.mockMvc.perform(formLogin("/api/signin").user("Tom").password("qwerty"))
+				.andExpect(authenticated())
+				.andReturn();
+		
+		MockHttpSession httpSession = MockHttpSession.class.cast(mvcResult.getRequest().getSession(false));
+
+		this.mockMvc.perform(get("/api/javaquestions/")
+				.session(httpSession))
+				.andExpect(status().isOk());
+
+	}
 
 
 }
