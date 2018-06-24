@@ -41,29 +41,27 @@ public class QuestionRestControllerTest {
 	}
 	
 	
-	@Test 
+	@Test
 	public void shoudReadJavaQuestions() throws Exception {
-		mockMvc.perform(get("/api/javaquestions"))
-			.andExpect(status().isOk());
-		
+		mockMvc.perform(get("/api/javaquestions")).andExpect(status().isOk());
+
 		verify(javaQuestionsService).findAllQuestions();
 	}
-	
+
 	@Test
 	public void shouldPostJavaQuestions() throws Exception {
-		mockMvc.perform(post("/api/javaquestions")
-		.contentType(MediaType.APPLICATION_JSON)
-		.content(javaQuestionInJson( "What is java object", "Java object is a complex entity with fields and methods")))
-		.andExpect(status().isOk());
-		
+		mockMvc.perform(post("/api/javaquestions").contentType(MediaType.APPLICATION_JSON)
+				.content(javaQuestionInJson("What is java object", "Java object is a complex entity with fields and methods")))
+				.andExpect(status().isOk());
+
 	}
-	
-	@Test 
+
+	@Test
 	public void shouldSaveJavaQuestions() {
 		Collection<JavaQuestion> collection = new ArrayList<JavaQuestion>();
 		questionRestController.writeJavaQuestions(collection);
 		verify(javaQuestionsService).saveAllQuestions(collection);
-		
+
 	}
 
 }
