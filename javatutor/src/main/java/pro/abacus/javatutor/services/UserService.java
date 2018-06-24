@@ -4,6 +4,6 @@ import pro.abacus.javatutor.domain.User;
 
 public interface UserService {
 	
-	User saveAccount(User user);
+	public User saveAccount(User user);
 
 }
