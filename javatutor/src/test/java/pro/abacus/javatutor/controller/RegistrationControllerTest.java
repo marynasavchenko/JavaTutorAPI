@@ -36,7 +36,7 @@ public class RegistrationControllerTest {
 	@Autowired
 	private RegistrationController registrationController = new RegistrationController(userService);
 
-	private static String createUserInJson(String name, String password) {
+	private static String userInJson(String name, String password) {
 		return "{ \"name\": \"" + name + "\", " + 
 				"\"password\":\"" + password + "\"}";
 	}
@@ -46,7 +46,7 @@ public class RegistrationControllerTest {
 
 		mockMvc.perform(post("/api/signup")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(createUserInJson("user1", "1234567")))
+				.content(userInJson("user1", "1234567")))
 				.andExpect(status().isOk());
 	}
 	
