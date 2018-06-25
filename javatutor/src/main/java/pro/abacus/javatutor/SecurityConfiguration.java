@@ -22,7 +22,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import pro.abacus.javatutor.security.AuthFailureHandler;
 import pro.abacus.javatutor.security.AuthSuccessHandler;
 import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
-import pro.abacus.javatutor.services.UserDetailsServiceImpl;
+import pro.abacus.javatutor.security.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,4 @@
-package pro.abacus.javatutor.services;
+package pro.abacus.javatutor.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.repository.UserRepository;
-import pro.abacus.javatutor.security.UserDetailsImpl;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
