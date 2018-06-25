@@ -11,10 +11,14 @@ import org.springframework.stereotype.Service;
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.repository.UserRepository;
 
+/**
+ * Authenticate a user from the database.
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	final static Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
+	
 	private UserRepository accountRepository;
 
 	@Autowired
@@ -24,7 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+
 		log.trace("Load user by username" + username);
 		User user = accountRepository.findByUsername(username);
 		if (user == null) {
