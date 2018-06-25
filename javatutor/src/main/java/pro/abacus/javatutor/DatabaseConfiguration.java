@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @Configuration
 @EnableMongoRepositories("pro.abacus.javatutor.repository")
 @Import(value = MongoAutoConfiguration.class)
-public class DatabaseConfigurations {
+public class DatabaseConfiguration {
 
 	@Bean
 	public ValidatingMongoEventListener validatingMongoEventListener() {
