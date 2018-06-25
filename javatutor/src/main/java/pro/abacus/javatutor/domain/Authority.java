@@ -14,24 +14,25 @@ public class Authority {
 
 	@Id
 	@NotNull
-    private String authorityName;
-    
-    public Authority(String authorityName) {
-    	this.authorityName=authorityName;
-    }
+	private String authorityName;
 
-    public String getAuthorityName() {
-        return authorityName;
-    }
+	public Authority(String authorityName) {
+		this.authorityName = authorityName;
+	}
 
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName;
-    }
-    
-    @Override
+	public String getAuthorityName() {
+		return authorityName;
+	}
+
+	public void setAuthorityName(String authorityName) {
+		this.authorityName = authorityName;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
+		
 		if (obj == null || (getClass() != obj.getClass()))
 			return false;
 

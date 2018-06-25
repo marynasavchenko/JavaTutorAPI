@@ -66,6 +66,7 @@ public class JavaQuestion {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
+		
 		if (obj == null || (getClass() != obj.getClass()))
 			return false;
 
@@ -85,6 +86,6 @@ public class JavaQuestion {
 	public String toString() {
 		return "JavaQuestion [id=" + id + ", account=" + account + ", question=" + question + ", answer=" + answer
 				+ "]";
-	} 
+	}
 
 }

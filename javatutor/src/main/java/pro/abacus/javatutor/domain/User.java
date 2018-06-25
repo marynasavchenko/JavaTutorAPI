@@ -16,38 +16,40 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document
 public class User {
-	
+
 	@Id
 	@NotNull
 	private String id;
-	
+
 	@NotNull
 	private String username;
-	
+
 	@NotNull
 	private String password;
-	
-	private Set<Authority> authorities = new HashSet<>();
-	
-    private List<JavaQuestion> javaquestions = new ArrayList<>();
-	
-	public User() { } 
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-    public User(String username, String password, Set<Authority> authorities) {
-        this.username = username;
-        this.password = password;
-        this.authorities=authorities;
-    }
-    
-    public User (User user) {
-    	this.username = user.getUsername();
-    	this.password=user.getPassword();
-    	this.authorities=user.getUserAuthorities();
-    }
+	private Set<Authority> authorities = new HashSet<>();
+
+	private List<JavaQuestion> javaquestions = new ArrayList<>();
+
+	public User() {
+	}
+
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	public User(String username, String password, Set<Authority> authorities) {
+		this.username = username;
+		this.password = password;
+		this.authorities = authorities;
+	}
+
+	public User(User user) {
+		this.username = user.getUsername();
+		this.password = user.getPassword();
+		this.authorities = user.getUserAuthorities();
+	}
 
 	public String getId() {
 		return id;
@@ -80,7 +82,6 @@ public class User {
 	public void setUserAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
-	
 
 	public List<JavaQuestion> getJavaquestions() {
 		return javaquestions;
@@ -89,12 +90,12 @@ public class User {
 	public void setJavaquestions(List<JavaQuestion> javaquestions) {
 		this.javaquestions = javaquestions;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		
+
 		if (obj == null || (getClass() != obj.getClass()))
 			return false;
 
@@ -112,9 +113,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", authorities="
-				+ authorities + ", javaquestions=" + javaquestions + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", authorities=" + authorities
+				+ ", javaquestions=" + javaquestions + "]";
 	}
 
-    
 }
