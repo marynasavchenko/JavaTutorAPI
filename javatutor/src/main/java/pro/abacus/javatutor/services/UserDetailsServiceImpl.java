@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.domain.UserDetailsImpl;
 import pro.abacus.javatutor.repository.UserRepository;
+import pro.abacus.javatutor.security.UserDetailsImpl;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

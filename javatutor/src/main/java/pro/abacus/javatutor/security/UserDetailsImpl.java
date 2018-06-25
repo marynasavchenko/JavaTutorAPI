@@ -1,4 +1,4 @@
-package pro.abacus.javatutor.domain;
+package pro.abacus.javatutor.security;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import pro.abacus.javatutor.SecurityConfiguration;
+import pro.abacus.javatutor.domain.User;
 
 
 public class UserDetailsImpl extends User implements UserDetails {
