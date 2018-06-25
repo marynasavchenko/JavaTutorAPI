@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.services.UserService;
 
+/**
+ * REST controller for users registration.
+ */
 @RestController
 @RequestMapping("/api")
 public class RegistrationController {
@@ -26,9 +29,12 @@ public class RegistrationController {
 		this.userService = userService;
 	}
 
+	/**
+	 * POST /signup : register the user.
+	 */
 	@PostMapping(value = "/signup", consumes = "application/json")
-	public User registerUser(@RequestBody User user) {
-		return userService.saveAccount(user);
+	public void registerUser(@RequestBody User user) {
+		userService.saveAccount(user);
 	}
 
 	@GetMapping(value = "/signup")
