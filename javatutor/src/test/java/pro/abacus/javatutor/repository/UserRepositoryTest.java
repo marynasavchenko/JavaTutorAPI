@@ -21,37 +21,35 @@ import pro.abacus.javatutor.repository.UserRepository;
 @RunWith(SpringRunner.class)
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 public class UserRepositoryTest {
-	
+
 	private User account;
-	
+
 	private Authority authority;
-	
+
 	@Autowired
 	private MongoTemplate mongoTemplate;
-	
+
 	@Autowired
 	UserRepository accountRepository;
-	
-	 @Before
-	    public void setUp() {
-		 authority = new Authority("USER");
-		 HashSet<Authority> authorities = new HashSet<>();
-		 authorities.add(authority);
-		 account = new User("Ann","1234pass", authorities);
-	    }
 
-	   @After
-	    public void tearDown() {
-	    	mongoTemplate.getDb().drop();
-	    }
-	
+	@Before
+	public void setUp() {
+		authority = new Authority("USER");
+		HashSet<Authority> authorities = new HashSet<>();
+		authorities.add(authority);
+		account = new User("Ann", "1234pass", authorities);
+	}
+
+	@After
+	public void tearDown() {
+		mongoTemplate.getDb().drop();
+	}
+
 	@Test
-	public void shouldLookUpSavedAccount(){
-		
+	public void shouldLookUpSavedAccount() {
 		mongoTemplate.save(account);
-		User foundAccount =accountRepository.findByUsername("Ann");
+		User foundAccount = accountRepository.findByUsername("Ann");
 		assertEquals("1234pass", foundAccount.getPassword());
 	}
-	
 
 }

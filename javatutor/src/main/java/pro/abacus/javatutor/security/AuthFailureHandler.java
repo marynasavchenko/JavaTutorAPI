@@ -11,11 +11,11 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 
 public class AuthFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
-	    public static final String UNAUTHORIZED_MESSAGE = "Authentication failed";
+	public static final String UNAUTHORIZED_MESSAGE = "Authentication failed";
 
-	    @Override
-	    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-	        AuthenticationException exception) throws IOException, ServletException {
-	        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, UNAUTHORIZED_MESSAGE);
-	    }
+	@Override
+	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException exception) throws IOException, ServletException {
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, UNAUTHORIZED_MESSAGE);
+	}
 }
