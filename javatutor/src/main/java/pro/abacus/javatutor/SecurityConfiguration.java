@@ -71,36 +71,36 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-	    http.csrf().disable();
-	    http.cors();
-	    http.headers().frameOptions().disable();
-	    http 
-            .formLogin()
-            .loginProcessingUrl("/api/signin")
-            .successHandler(authSuccessHandler())
-            .failureHandler(authFailureHandler())
-            .usernameParameter("username")
-            .passwordParameter("password")
-            .permitAll()
-        .and()
-            .rememberMe()
-	    .and()
-	        .headers()
-	        .frameOptions()
-	        .disable()
-        .and()
-            .authorizeRequests()
-            .antMatchers("/api/signin").permitAll()
-	        .antMatchers("/api/signup").permitAll()
-            .antMatchers("/api/javaquestions/**").authenticated()
-            .anyRequest()
-            .permitAll()
-        .and()
-            .logout()
-            .logoutUrl("/api/logout")
-            .logoutSuccessHandler(logoutSuccessHandlerImpl())
-            .permitAll();
-            
+		http.csrf().disable();
+		http.cors();
+		http.headers().frameOptions().disable();
+		http
+			.formLogin()
+			.loginProcessingUrl("/api/signin")
+			.successHandler(authSuccessHandler())
+			.failureHandler(authFailureHandler())
+			.usernameParameter("username")
+			.passwordParameter("password")
+			.permitAll()
+		.and()
+			.rememberMe()
+		.and()
+			.headers()
+			.frameOptions()
+			.disable()
+		.and()
+			.authorizeRequests()
+			.antMatchers("/api/signin").permitAll()
+			.antMatchers("/api/signup").permitAll()
+			.antMatchers("/api/javaquestions/**").authenticated()
+			.anyRequest()
+			.permitAll()
+		.and()
+			.logout()
+			.logoutUrl("/api/logout")
+			.logoutSuccessHandler(logoutSuccessHandlerImpl())
+			.permitAll();
+
 	}
 	
 	@Bean

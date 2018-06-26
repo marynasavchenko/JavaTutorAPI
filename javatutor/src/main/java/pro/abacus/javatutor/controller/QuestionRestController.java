@@ -27,8 +27,8 @@ public class QuestionRestController {
 	}
 	
 	/**
-     * GET  /javaquestions : return java questions.
-     */
+	 * GET /javaquestions : return java questions.
+	 */
 	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@GetMapping(value = "/javaquestions")
 	public Collection<JavaQuestion> readAllJavaQuestions() {
@@ -36,8 +36,8 @@ public class QuestionRestController {
 	}
 
 	/**
-     * POST  /javaquestions : save java questions.
-     */
+	 * POST /javaquestions : save java questions.
+	 */
 	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@PostMapping(value = "/javaquestions", consumes = "application/json")
 	public void writeJavaQuestions(@RequestBody Collection<JavaQuestion> javaQuestions) {
