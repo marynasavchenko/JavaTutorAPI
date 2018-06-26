@@ -1,4 +1,4 @@
-package pro.abacus.javatutor.services;
+package pro.abacus.javatutor.service;
 
 import java.util.Collection;
 

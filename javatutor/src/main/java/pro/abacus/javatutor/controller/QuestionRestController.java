@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pro.abacus.javatutor.domain.JavaQuestion;
-import pro.abacus.javatutor.services.JavaQuestionsService;
+import pro.abacus.javatutor.service.JavaQuestionsService;
 
 /**
  * REST controller for managing java questions.

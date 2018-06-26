@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import pro.abacus.javatutor.controller.RegistrationController;
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.services.UserService;
+import pro.abacus.javatutor.service.UserService;
 
 
 @RunWith(SpringRunner.class)

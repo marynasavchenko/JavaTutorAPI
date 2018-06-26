@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import pro.abacus.javatutor.domain.JavaQuestion;
-import pro.abacus.javatutor.services.JavaQuestionsService;
+import pro.abacus.javatutor.service.JavaQuestionsService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest (QuestionRestController.class)
