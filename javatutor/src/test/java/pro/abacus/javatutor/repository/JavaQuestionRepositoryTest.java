@@ -1,5 +1,6 @@
 package pro.abacus.javatutor.repository;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 import java.util.Collection;
@@ -41,10 +42,19 @@ public class JavaQuestionRepositoryTest {
 		javaQuestion2 = new JavaQuestion(account,"question2","answer2");
 	}
 	
-	/*@After
+	@After
 	public void tearDown(){
 		mongoTemplate.getDb().drop();
-	}*/
+	}
+	
+	@Test
+	public void shouldFindAllQuestions() {
+		mongoTemplate.save(javaQuestion);
+		mongoTemplate.save(javaQuestion2);
+		List<JavaQuestion> listOfQuestions =javaQuestionRepository.findAll();
+		assertThat(!listOfQuestions.isEmpty());
+		
+	}
 	
 	@Test
 	public void shouldLookUpQuestionsByAccount(){

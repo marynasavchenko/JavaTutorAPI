@@ -2,9 +2,12 @@ package pro.abacus.javatutor.services;
 
 import java.util.Collection;
 
+import org.springframework.stereotype.Service;
+
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
 
+@Service
 public class JavaQuestionsServiceImpl implements JavaQuestionsService {
 
 	private JavaQuestionRepository javaQuestionRepository;

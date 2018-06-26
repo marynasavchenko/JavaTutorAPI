@@ -34,16 +34,16 @@ public class UserRepositoryTest {
 	
 	 @Before
 	    public void setUp() {
-		 authority = new Authority("user");
+		 authority = new Authority("USER");
 		 HashSet<Authority> authorities = new HashSet<>();
 		 authorities.add(authority);
 		 account = new User("Ann","1234pass", authorities);
 	    }
 
-	   /*@After
+	   @After
 	    public void tearDown() {
 	    	mongoTemplate.getDb().drop();
-	    }*/
+	    }
 	
 	@Test
 	public void shouldLookUpSavedAccount(){

@@ -37,7 +37,6 @@ public class SecurityIntegrationTest {
 				.andExpect(status().is3xxRedirection())
 				.andReturn();
 
-		//assertThat(mvcResult.getResponse().getRedirectedUrl()).endsWith("/signin");
 	}
 	
 	@Test
@@ -46,12 +45,12 @@ public class SecurityIntegrationTest {
 				.andExpect(authenticated());
 	}
 		
-	/*@Test
+	@Test
 	public void loginInvalidUser() throws Exception {
 		this.mockMvc.perform(formLogin("/api/signin").user("invalid").password("invalid"))
 				.andExpect(unauthenticated())
 				.andExpect(status().is3xxRedirection());
-	}*/
+	}
 	
 	
 	@Test
