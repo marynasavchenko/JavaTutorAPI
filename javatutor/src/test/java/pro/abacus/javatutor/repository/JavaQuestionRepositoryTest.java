@@ -56,6 +56,7 @@ public class JavaQuestionRepositoryTest {
 		mongoTemplate.save(javaQuestion2);
 		List<JavaQuestion> foundQuestions =javaQuestionRepository.findAll();
 		assertEquals(2,foundQuestions.size());
+		assertEquals("question1",foundQuestions.get(0).getQuestion());
 	}
 	
 	@Test
@@ -64,15 +65,16 @@ public class JavaQuestionRepositoryTest {
 		
 		List<JavaQuestion> foundQuestions =javaQuestionRepository.findAll();
 		assertEquals(2,foundQuestions.size());
+		assertEquals("question1",foundQuestions.get(0).getQuestion());
 	}
 	
 	@Test
 	public void shouldLookUpQuestionsByAccount() throws Exception{
 		mongoTemplate.save(javaQuestion);
 		mongoTemplate.save(javaQuestion2);
-		List<JavaQuestion> listOfQuestions =javaQuestionRepository.findByAccountUsername("Tom");
-		assertEquals("question1",listOfQuestions.get(0).getQuestion());
-		assertEquals("answer1", listOfQuestions.get(0).getAnswer());
+		List<JavaQuestion> foundQuestions =javaQuestionRepository.findByAccountUsername("Tom");
+		assertEquals("question1",foundQuestions.get(0).getQuestion());
+		assertEquals("answer1", foundQuestions.get(0).getAnswer());
 	}
 
 }
