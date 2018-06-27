@@ -49,7 +49,7 @@ public class SecurityIntegrationTest {
 	public void loginInvalidUser() throws Exception {
 		this.mockMvc.perform(formLogin("/api/signin").user("invalid").password("invalid"))
 				.andExpect(unauthenticated())
-				.andExpect(status().is3xxRedirection());
+				.andExpect(status().is4xxClientError());
 	}
 	
 	
