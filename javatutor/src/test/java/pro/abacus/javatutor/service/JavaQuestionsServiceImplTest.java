@@ -30,7 +30,7 @@ public class JavaQuestionsServiceImplTest {
 	}
 
 	@Test
-	public void shouldFindAllQuestions() {
+	public void shouldFindAllQuestions() throws Exception{
 		javaQuestionService.findAllQuestions();
 		verify(javaQuestionRepository).findAll();
 	}

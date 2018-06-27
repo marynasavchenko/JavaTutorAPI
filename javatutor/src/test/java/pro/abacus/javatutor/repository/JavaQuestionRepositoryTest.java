@@ -1,12 +1,9 @@
 package pro.abacus.javatutor.repository;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,8 +23,10 @@ public class JavaQuestionRepositoryTest {
 	
 	private JavaQuestion javaQuestion;
 	private JavaQuestion javaQuestion2;
+	private List<JavaQuestion> questionList;
 	
 	private User account;
+	private User account2;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -38,8 +37,12 @@ public class JavaQuestionRepositoryTest {
 	@Before
 	public void setUp(){
 		account = new User ("Tom","12345678");
+		account2 = new User ("Brigette","12345678");
 		javaQuestion = new JavaQuestion(account,"question1","answer1");
 		javaQuestion2 = new JavaQuestion(account,"question2","answer2");
+		questionList = new ArrayList<JavaQuestion>();
+		questionList.add(javaQuestion);
+		questionList.add(javaQuestion2);
 	}
 	
 	@After
@@ -48,16 +51,23 @@ public class JavaQuestionRepositoryTest {
 	}
 	
 	@Test
-	public void shouldFindAllQuestions() {
+	public void shouldFindAllQuestions() throws Exception{
 		mongoTemplate.save(javaQuestion);
 		mongoTemplate.save(javaQuestion2);
-		List<JavaQuestion> listOfQuestions =javaQuestionRepository.findAll();
-		assertThat(!listOfQuestions.isEmpty());
-		
+		List<JavaQuestion> foundQuestions =javaQuestionRepository.findAll();
+		assertEquals(2,foundQuestions.size());
 	}
 	
 	@Test
-	public void shouldLookUpQuestionsByAccount(){
+	public void shouldSaveAllQuestions() throws Exception{
+		javaQuestionRepository.saveAll(questionList);
+		
+		List<JavaQuestion> foundQuestions =javaQuestionRepository.findAll();
+		assertEquals(2,foundQuestions.size());
+	}
+	
+	@Test
+	public void shouldLookUpQuestionsByAccount() throws Exception{
 		mongoTemplate.save(javaQuestion);
 		mongoTemplate.save(javaQuestion2);
 		List<JavaQuestion> listOfQuestions =javaQuestionRepository.findByAccountUsername("Tom");
