@@ -6,7 +6,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class JavaTutorApplication {
+public class JavaTutorApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(JavaTutorApplication.class);
+	}
+
 	/**
 	 * Main method, used to run the application.
 	 * 
