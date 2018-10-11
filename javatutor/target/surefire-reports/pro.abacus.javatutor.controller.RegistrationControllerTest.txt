@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pro.abacus.javatutor.controller.RegistrationControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.947 s - in pro.abacus.javatutor.controller.RegistrationControllerTest

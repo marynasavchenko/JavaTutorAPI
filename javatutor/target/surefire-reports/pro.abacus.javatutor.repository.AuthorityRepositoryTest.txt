@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: pro.abacus.javatutor.repository.AuthorityRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 34.796 s <<< FAILURE! - in pro.abacus.javatutor.repository.AuthorityRepositoryTest
+shouldLookUpAuthorities(pro.abacus.javatutor.repository.AuthorityRepositoryTest)  Time elapsed: 30.241 s  <<< ERROR!
+org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.AuthorityRepositoryTest.shouldLookUpAuthorities(AuthorityRepositoryTest.java:39)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.AuthorityRepositoryTest.shouldLookUpAuthorities(AuthorityRepositoryTest.java:39)
+

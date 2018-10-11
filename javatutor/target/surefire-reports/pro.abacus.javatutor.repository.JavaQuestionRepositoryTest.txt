@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: pro.abacus.javatutor.repository.JavaQuestionRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 180.268 s <<< FAILURE! - in pro.abacus.javatutor.repository.JavaQuestionRepositoryTest
+shouldLookUpQuestionsByAccount(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.02 s  <<< ERROR!
+org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldLookUpQuestionsByAccount(JavaQuestionRepositoryTest.java:73)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldLookUpQuestionsByAccount(JavaQuestionRepositoryTest.java:73)
+
+shouldLookUpQuestionsByAccount(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.02 s  <<< ERROR!
+com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.tearDown(JavaQuestionRepositoryTest.java:50)
+
+shouldSaveAllQuestions(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.114 s  <<< ERROR!
+org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldSaveAllQuestions(JavaQuestionRepositoryTest.java:64)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldSaveAllQuestions(JavaQuestionRepositoryTest.java:64)
+
+shouldSaveAllQuestions(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.119 s  <<< ERROR!
+com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.tearDown(JavaQuestionRepositoryTest.java:50)
+
+shouldFindAllQuestions(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.058 s  <<< ERROR!
+org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldFindAllQuestions(JavaQuestionRepositoryTest.java:55)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.shouldFindAllQuestions(JavaQuestionRepositoryTest.java:55)
+
+shouldFindAllQuestions(pro.abacus.javatutor.repository.JavaQuestionRepositoryTest)  Time elapsed: 60.058 s  <<< ERROR!
+com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused: connect}}]
+	at pro.abacus.javatutor.repository.JavaQuestionRepositoryTest.tearDown(JavaQuestionRepositoryTest.java:50)
+
