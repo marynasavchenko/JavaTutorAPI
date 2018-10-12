@@ -20,7 +20,6 @@ import pro.abacus.javatutor.domain.Authority;
 public class AuthorityRepositoryTest {
 	
 	private Authority authorityUser;
-	private Authority authorityAdmin;
 	
 	@Autowired
 	private AuthorityRepository authorityRepository;
@@ -31,7 +30,6 @@ public class AuthorityRepositoryTest {
 	@Before
 	public void setup() {
 		authorityUser = new Authority("USER");
-		authorityAdmin = new Authority("ADMIN");
 	}
 	
 	@Test
