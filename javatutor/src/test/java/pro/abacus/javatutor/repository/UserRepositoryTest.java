@@ -19,7 +19,7 @@ import pro.abacus.javatutor.domain.Authority;
 import pro.abacus.javatutor.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
-@DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
+@DataMongoTest
 public class UserRepositoryTest {
 
 	private User account;
