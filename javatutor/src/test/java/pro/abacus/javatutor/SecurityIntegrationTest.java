@@ -21,27 +21,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SecurityIntegrationTest {
+
+	private static final String JAVA_QUESTIONS  = "/api/javaquestions/";
+	private static final String SIGN_IN  = "/api/signin";
+
+	private static final String VALID_LOGIN  = "Tom";
+	private static final String VALID_PASSWORD  = "qwerty";
+
+	private static final String INVALID_LOGIN  = "invalidLogin";
+	private static final String INVALID_PASSWORD  = "invalidPassword";
+
 	
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@Test
 	public void accessProtectedApiRedirectsToLogin() throws Exception {
-		MvcResult mvcResult = this.mockMvc.perform(get("/api/javaquestions/"))
-				.andExpect(status().is3xxRedirection())
-				.andReturn();
-
+		this.mockMvc.perform(get(JAVA_QUESTIONS))
+				.andExpect(status().is3xxRedirection());
 	}
 	
 	@Test
 	public void loginUser() throws Exception {
-		this.mockMvc.perform(formLogin("/api/signin").user("Tom").password("qwerty"))
+		this.mockMvc.perform(formLogin(SIGN_IN).user(VALID_LOGIN).password(VALID_PASSWORD))
 				.andExpect(authenticated());
 	}
 		
 	@Test
 	public void loginInvalidUser() throws Exception {
-		this.mockMvc.perform(formLogin("/api/signin").user("invalid").password("invalid"))
+		this.mockMvc.perform(formLogin(SIGN_IN).user(INVALID_LOGIN).password(INVALID_PASSWORD))
 				.andExpect(unauthenticated())
 				.andExpect(status().is4xxClientError());
 	}
@@ -50,22 +58,21 @@ public class SecurityIntegrationTest {
 	@Test
 	@WithMockUser
 	public void loginWithMockUser() throws Exception {
-		this.mockMvc.perform(get("/api/javaquestions/"))
+		this.mockMvc.perform(get(JAVA_QUESTIONS))
 				.andExpect(authenticated());
 	}
 	
 	@Test
 	public void loginUserAccessProtected() throws Exception {
-		MvcResult mvcResult = this.mockMvc.perform(formLogin("/api/signin").user("Tom").password("qwerty"))
+		MvcResult mvcResult = this.mockMvc.perform(formLogin(SIGN_IN).user(VALID_LOGIN).password(VALID_PASSWORD))
 				.andExpect(authenticated())
 				.andReturn();
 		
 		MockHttpSession httpSession = MockHttpSession.class.cast(mvcResult.getRequest().getSession(false));
 
-		this.mockMvc.perform(get("/api/javaquestions/")
+		this.mockMvc.perform(get(JAVA_QUESTIONS)
 				.session(httpSession))
 				.andExpect(status().isOk());
-
 	}
 
 
