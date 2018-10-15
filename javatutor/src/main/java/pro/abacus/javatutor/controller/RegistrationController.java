@@ -33,6 +33,6 @@ public class RegistrationController {
 	public void registerUser(@RequestBody User user) {
 		userService.saveAccount(user);
 	}
-	
+
 
 }

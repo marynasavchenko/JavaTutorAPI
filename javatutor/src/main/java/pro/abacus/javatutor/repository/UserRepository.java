@@ -10,7 +10,6 @@ import pro.abacus.javatutor.domain.User;
  */
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-
-	public User findByUsername(String username);
+	User findByUsername(String username);
 
 }
