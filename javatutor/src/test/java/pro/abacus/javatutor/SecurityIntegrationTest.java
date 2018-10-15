@@ -36,19 +36,19 @@ public class SecurityIntegrationTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	public void accessProtectedApiRedirectsToLogin() throws Exception {
+	public void shouldRedirectToLoginWhenAccessProtectedEndpoint() throws Exception {
 		this.mockMvc.perform(get(JAVA_QUESTIONS))
 				.andExpect(status().is3xxRedirection());
 	}
 	
 	@Test
-	public void loginUser() throws Exception {
+	public void shouldAuthenticateUserWithValidCredentials() throws Exception {
 		this.mockMvc.perform(formLogin(SIGN_IN).user(VALID_LOGIN).password(VALID_PASSWORD))
 				.andExpect(authenticated());
 	}
 		
 	@Test
-	public void loginInvalidUser() throws Exception {
+	public void shouldNotAuthenticateUserWithInvalidCredentials() throws Exception {
 		this.mockMvc.perform(formLogin(SIGN_IN).user(INVALID_LOGIN).password(INVALID_PASSWORD))
 				.andExpect(unauthenticated())
 				.andExpect(status().is4xxClientError());
@@ -57,13 +57,13 @@ public class SecurityIntegrationTest {
 	
 	@Test
 	@WithMockUser
-	public void loginWithMockUser() throws Exception {
+	public void shouldAuthenticateMockUser() throws Exception {
 		this.mockMvc.perform(get(JAVA_QUESTIONS))
 				.andExpect(authenticated());
 	}
 	
 	@Test
-	public void loginUserAccessProtected() throws Exception {
+	public void sholdAccessProtectedEndpoinAfterSuccessfulLogin() throws Exception {
 		MvcResult mvcResult = this.mockMvc.perform(formLogin(SIGN_IN).user(VALID_LOGIN).password(VALID_PASSWORD))
 				.andExpect(authenticated())
 				.andReturn();
