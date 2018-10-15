@@ -3,13 +3,10 @@ package pro.abacus.javatutor.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.service.UserService;
 
@@ -36,10 +33,6 @@ public class RegistrationController {
 	public void registerUser(@RequestBody User user) {
 		userService.saveAccount(user);
 	}
-
-	//TODO: delete unused
-	@GetMapping(value = "/signup")
-	public @ResponseBody void register() {
-	}
+	
 
 }
