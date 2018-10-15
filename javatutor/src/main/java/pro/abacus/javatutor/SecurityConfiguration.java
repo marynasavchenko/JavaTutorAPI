@@ -1,7 +1,5 @@
 package pro.abacus.javatutor;
 
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +12,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
 import pro.abacus.javatutor.security.AuthFailureHandler;
 import pro.abacus.javatutor.security.AuthSuccessHandler;
 import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
-import pro.abacus.javatutor.security.UserDetailsServiceImpl;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -31,11 +30,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	final static Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
 
-	//TODO: change to interface
-	private UserDetailsServiceImpl userDetailsService;
+	private UserDetailsService userDetailsService;
 
 	@Autowired
-	public SecurityConfiguration(UserDetailsServiceImpl userDetailsService) {
+	public SecurityConfiguration(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 
