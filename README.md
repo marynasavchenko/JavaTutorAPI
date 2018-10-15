@@ -5,7 +5,7 @@ Java Tutor API  is a web application that can be used to access questions relate
 
 ## **Installing**
 
-1. To generate .war file run command 
+1. To generate .jar file run command 
 ```
 mvn clean install
 ```

@@ -37,6 +37,7 @@ public class RegistrationController {
 		userService.saveAccount(user);
 	}
 
+	//TODO: delete unused
 	@GetMapping(value = "/signup")
 	public @ResponseBody void register() {
 	}

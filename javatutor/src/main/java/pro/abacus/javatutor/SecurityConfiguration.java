@@ -31,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	final static Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
 
+	//TODO: change to interface
 	private UserDetailsServiceImpl userDetailsService;
 
 	@Autowired
