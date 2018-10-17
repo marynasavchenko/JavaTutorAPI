@@ -53,7 +53,7 @@ public class RegistrationControllerTest {
 	public void shouldSaveUser() throws Exception {
 		registrationController.registerUser(user);
 
-		verify(userService).saveAccount(user);
+		verify(userService).saveUserAccount(user);
 	}
 
 }

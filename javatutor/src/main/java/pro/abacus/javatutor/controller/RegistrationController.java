@@ -31,7 +31,8 @@ public class RegistrationController {
 	 */
 	@PostMapping(value = "/signup", consumes = "application/json")
 	public void registerUser(@RequestBody User user) {
-		userRegistrationService.saveAccount(user);
+		userRegistrationService.saveUserAccount(user);
+		log.info("saving user" + user);
 	}
 
 

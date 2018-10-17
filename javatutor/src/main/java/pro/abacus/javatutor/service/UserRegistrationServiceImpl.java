@@ -9,28 +9,26 @@ import pro.abacus.javatutor.repository.UserRepository;
 
 import java.util.HashSet;
 
-//TODO: rename to userRegistrationService?
 @Service
-public class UserServiceImpl implements UserRegistrationService {
+public class UserRegistrationServiceImpl implements UserRegistrationService {
 
 	private UserRepository userRepository;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	private AuthorityRepository authorityRepository;
 
 	@Autowired
-	public UserServiceImpl(UserRepository accountRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
-			AuthorityRepository authorityRepository) {
+	public UserRegistrationServiceImpl(UserRepository accountRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
+	                                   AuthorityRepository authorityRepository) {
 		this.userRepository = accountRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.authorityRepository = authorityRepository;
 	}
-//TODO: authorityRepository change method
+
+//TODO: authorityRepository change method, split to several methods
 	@Override
-	public User saveAccount(User user) {
+	public void saveUserAccount(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
-		return userRepository.save(user);
-
+		userRepository.save(user);
 	}
-
 }
