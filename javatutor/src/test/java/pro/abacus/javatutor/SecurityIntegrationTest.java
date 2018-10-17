@@ -28,7 +28,7 @@ public class SecurityIntegrationTest {
 		this.mockMvc.perform(get(JAVA_QUESTIONS))
 				.andExpect(status().is3xxRedirection());
 	}
-	
+
 	@Test
 	@WithMockUser
 	public void shouldAuthenticateMockUser() throws Exception {
