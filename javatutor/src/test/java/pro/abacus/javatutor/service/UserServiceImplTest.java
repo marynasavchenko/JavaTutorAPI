@@ -14,15 +14,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.repository.AuthorityRepository;
 import pro.abacus.javatutor.repository.UserRepository;
-import pro.abacus.javatutor.service.UserService;
-import pro.abacus.javatutor.service.UserServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceImplTest {
 	private static final String UNSECURED_PASSWORD = "1234test";
 	private static final String SECURED_PASSWORD = "1BC29B36F623BA82AAF6724FD3B16718";
 	
-	private UserService userService;
+	private UserRegistrationService userService;
 	
 	@Mock
 	private UserRepository userRepository;

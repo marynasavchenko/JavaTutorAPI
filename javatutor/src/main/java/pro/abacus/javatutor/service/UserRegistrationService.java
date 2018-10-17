@@ -4,9 +4,9 @@ import pro.abacus.javatutor.domain.User;
 
 
 /**
- * Service interface for managing users.
+ * Service interface for managing users registrations.
  */
-public interface UserService {
+public interface UserRegistrationService {
 	User saveAccount(User user);
 
 }

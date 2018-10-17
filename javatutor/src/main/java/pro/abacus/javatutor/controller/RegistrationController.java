@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.service.UserService;
+import pro.abacus.javatutor.service.UserRegistrationService;
 
 /**
  * REST controller for users registration.
@@ -19,11 +19,11 @@ public class RegistrationController {
 
 	final static Logger log = LoggerFactory.getLogger(RegistrationController.class);
 
-	private UserService userService;
+	private UserRegistrationService userRegistrationService;
 
 	@Autowired
-	public RegistrationController(UserService userService) {
-		this.userService = userService;
+	public RegistrationController(UserRegistrationService userRegistrationService) {
+		this.userRegistrationService = userRegistrationService;
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class RegistrationController {
 	 */
 	@PostMapping(value = "/signup", consumes = "application/json")
 	public void registerUser(@RequestBody User user) {
-		userService.saveAccount(user);
+		userRegistrationService.saveAccount(user);
 	}
 
 

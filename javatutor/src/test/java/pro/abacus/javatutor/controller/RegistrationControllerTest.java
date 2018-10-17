@@ -14,9 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import pro.abacus.javatutor.controller.RegistrationController;
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.service.UserService;
+import pro.abacus.javatutor.service.UserRegistrationService;
 
 
 @RunWith(SpringRunner.class)
@@ -25,7 +24,7 @@ import pro.abacus.javatutor.service.UserService;
 public class RegistrationControllerTest {
 
 	@MockBean
-	private UserService userService;
+	private UserRegistrationService userService;
 	
 	@MockBean
 	private User user;

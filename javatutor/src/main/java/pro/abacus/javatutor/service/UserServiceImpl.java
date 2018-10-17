@@ -1,18 +1,17 @@
 package pro.abacus.javatutor.service;
 
-import java.util.HashSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import pro.abacus.javatutor.domain.User;
-import pro.abacus.javatutor.repository.UserRepository;
 import pro.abacus.javatutor.repository.AuthorityRepository;
+import pro.abacus.javatutor.repository.UserRepository;
+
+import java.util.HashSet;
 
 //TODO: rename to userRegistrationService?
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserRegistrationService {
 
 	private UserRepository userRepository;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
