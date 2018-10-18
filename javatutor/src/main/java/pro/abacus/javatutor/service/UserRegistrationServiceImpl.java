@@ -17,18 +17,25 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	private AuthorityRepository authorityRepository;
 
 	@Autowired
-	public UserRegistrationServiceImpl(UserRepository accountRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
+	public UserRegistrationServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
 	                                   AuthorityRepository authorityRepository) {
-		this.userRepository = accountRepository;
+		this.userRepository = userRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.authorityRepository = authorityRepository;
 	}
 
-//TODO: authorityRepository change method, split to several methods
 	@Override
 	public void saveUserAccount(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
+		setEncodedPassword(user);
+		setAuthoritisForAccount(user);
 		userRepository.save(user);
+	}
+
+	private void setEncodedPassword(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+	}
+
+	private void setAuthoritisForAccount(User user) {
+		user.setUserAuthorities(new HashSet<>(authorityRepository.findAll()));
 	}
 }
