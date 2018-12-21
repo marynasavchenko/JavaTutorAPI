@@ -42,7 +42,7 @@ public class QuestionRestControllerTest {
 	
 	
 	@Test
-	public void shoudReadJavaQuestions() throws Exception {
+	public void shouldReadJavaQuestions() throws Exception {
 		mockMvc.perform(get("/api/javaquestions")).andExpect(status().isOk());
 
 		verify(javaQuestionsService).findAllQuestions();
