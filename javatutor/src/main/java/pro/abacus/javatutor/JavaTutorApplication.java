@@ -7,12 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JavaTutorApplication {
 	/**
 	 * Main method, used to run the application.
-	 * 
-	 * @param args
-	 *            the command line arguments
+	 *
+	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(JavaTutorApplication.class, args);
 	}
-
 }
