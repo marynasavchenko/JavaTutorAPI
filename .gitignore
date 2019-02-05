@@ -1,6 +1,22 @@
 # Compiled class file
 *.class
 
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+/target
+/target/
+**/target/
+
+
 # Log file
 *.log
 *.log*
