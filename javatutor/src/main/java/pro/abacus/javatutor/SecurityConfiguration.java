@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import pro.abacus.javatutor.security.AuthFailureHandler;
 import pro.abacus.javatutor.security.AuthSuccessHandler;
 import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
@@ -20,7 +21,7 @@ import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
+
 	final static Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
 
 	private UserDetailsService userDetailsService;
@@ -46,41 +47,39 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder(10);
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http
-			.formLogin()
-			.loginProcessingUrl("/api/signin")
-			.successHandler(authSuccessHandler())
-			.failureHandler(authFailureHandler())
-			.usernameParameter("username")
-			.passwordParameter("password")
-			.permitAll()
-		.and()
-			.rememberMe()
-		.and()
-			.authorizeRequests()
-			.antMatchers("/api/signin").permitAll()
-			.antMatchers("/api/signup").permitAll()
-			.antMatchers("/api/javaquestions/**").authenticated()
-			.anyRequest()
-			.permitAll()
-		.and()
-			.logout()
-			.logoutUrl("/api/logout")
-			.logoutSuccessHandler(logoutSuccessHandlerImpl())
-			.permitAll();
-
+				.formLogin()
+				.loginProcessingUrl("/api/signin")
+				.successHandler(authSuccessHandler())
+				.failureHandler(authFailureHandler())
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.permitAll()
+				.and()
+				.rememberMe()
+				.and()
+				.authorizeRequests()
+				.antMatchers("/api/signin").permitAll()
+				.antMatchers("/api/signup").permitAll()
+				.antMatchers("/api/javaquestions/**").authenticated()
+				.anyRequest()
+				.permitAll()
+				.and()
+				.logout()
+				.logoutUrl("/api/logout")
+				.logoutSuccessHandler(logoutSuccessHandlerImpl())
+				.permitAll();
 	}
-
 }
