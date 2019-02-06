@@ -25,6 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc(secure = false)
 public class QuestionRestControllerTest {
 
+	private static final String URI_JAVA_QUESTIONS = "/api/javaquestions";
+	private static final String QUESTION = "What is java object";
+	private static final String ANSWER = "Java object is a complex entity with fields and methods";
+
 	@MockBean
 	private JavaQuestionsService javaQuestionsService;
 
@@ -42,22 +46,22 @@ public class QuestionRestControllerTest {
 
 	@Test
 	public void shouldReadJavaQuestions() throws Exception {
-		mockMvc.perform(get("/api/javaquestions")).andExpect(status().isOk());
+		mockMvc.perform(get(URI_JAVA_QUESTIONS)).andExpect(status().isOk());
 
 		verify(javaQuestionsService).findAllQuestions();
 	}
 
 	@Test
 	public void shouldPostJavaQuestions() throws Exception {
-		mockMvc.perform(post("/api/javaquestions").contentType(MediaType.APPLICATION_JSON)
-				.content(javaQuestionInJson("What is java object", "Java object is a complex entity with fields and methods")))
+		mockMvc.perform(post(URI_JAVA_QUESTIONS).contentType(MediaType.APPLICATION_JSON)
+				.content(javaQuestionInJson(QUESTION, ANSWER)))
 				.andExpect(status().isOk());
 
 	}
 
 	@Test
 	public void shouldSaveJavaQuestions() {
-		Collection<JavaQuestion> collection = new ArrayList<JavaQuestion>();
+		Collection<JavaQuestion> collection = new ArrayList<>();
 		questionRestController.writeJavaQuestions(collection);
 		verify(javaQuestionsService).saveAllQuestions(collection);
 

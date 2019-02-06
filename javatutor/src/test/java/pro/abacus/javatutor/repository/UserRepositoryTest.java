@@ -1,26 +1,27 @@
 package pro.abacus.javatutor.repository;
 
-import static org.junit.Assert.*;
-
-import java.util.HashSet;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.domain.Authority;
-import pro.abacus.javatutor.repository.UserRepository;
+import pro.abacus.javatutor.domain.User;
+
+import java.util.HashSet;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest
 public class UserRepositoryTest {
+
+	private static final String USER_NAME = "Ann";
+	private static final String PASSWORD = "1234pass";
+	private static final String AUTHORITY_USER = "USER";
 
 	private User account;
 
@@ -34,10 +35,10 @@ public class UserRepositoryTest {
 
 	@Before
 	public void setUp() {
-		authority = new Authority("USER");
+		authority = new Authority(AUTHORITY_USER);
 		HashSet<Authority> authorities = new HashSet<>();
 		authorities.add(authority);
-		account = new User("Ann", "1234pass", authorities);
+		account = new User(USER_NAME, PASSWORD, authorities);
 	}
 
 	@After
@@ -48,8 +49,8 @@ public class UserRepositoryTest {
 	@Test
 	public void shouldLookUpSavedAccount() {
 		mongoTemplate.save(account);
-		User foundAccount = accountRepository.findByUsername("Ann");
-		assertEquals("1234pass", foundAccount.getPassword());
+		User foundAccount = accountRepository.findByUsername(USER_NAME);
+		assertEquals(PASSWORD, foundAccount.getPassword());
 	}
 
 }

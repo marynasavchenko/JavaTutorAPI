@@ -25,7 +25,7 @@ public class JavaQuestionsServiceImplTest {
 	@Before
 	public void setup() {
 		javaQuestionService = new JavaQuestionsServiceImpl(javaQuestionRepository);
-		javaQuestions = new ArrayList<JavaQuestion>();
+		javaQuestions = new ArrayList<>();
 	}
 
 	@Test

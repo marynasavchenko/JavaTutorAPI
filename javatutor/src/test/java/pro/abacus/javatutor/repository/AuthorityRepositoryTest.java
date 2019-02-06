@@ -18,6 +18,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 //(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 public class AuthorityRepositoryTest {
 
+	private static final String AUTHORITY_USER = "USER";
+
 	private Authority authorityUser;
 
 	@Autowired
@@ -28,7 +30,7 @@ public class AuthorityRepositoryTest {
 
 	@Before
 	public void setup() {
-		authorityUser = new Authority("USER");
+		authorityUser = new Authority(AUTHORITY_USER);
 	}
 
 	@Test
@@ -36,7 +38,7 @@ public class AuthorityRepositoryTest {
 		mongoTemplate.save(authorityUser);
 
 		List<Authority> foundAuthority = authorityRepository.findAll();
-		assertThat(foundAuthority.get(0).getAuthorityName()).isEqualTo("USER");
+		assertThat(foundAuthority.get(0).getAuthorityName()).isEqualTo(AUTHORITY_USER);
 
 	}
 

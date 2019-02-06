@@ -22,6 +22,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc(secure = false)
 public class RegistrationControllerTest {
 
+	private static final String ANY_USER_NAME = "Brigette";
+	private static final String PASSWORD = "12345678";
+	private static final String URI_SIGNUP = "/api/signup";
+
 	@MockBean
 	private UserRegistrationService userService;
 
@@ -42,9 +46,9 @@ public class RegistrationControllerTest {
 	@Test
 	public void shouldPostRegistrationDetails() throws Exception {
 
-		mockMvc.perform(post("/api/signup")
+		mockMvc.perform(post(URI_SIGNUP)
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(userInJson("user1", "1234567")))
+				.content(userInJson(ANY_USER_NAME, PASSWORD)))
 				.andExpect(status().isOk());
 	}
 
