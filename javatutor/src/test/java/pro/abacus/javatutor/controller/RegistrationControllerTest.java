@@ -1,9 +1,5 @@
 package pro.abacus.javatutor.controller;
 
-import static org.mockito.Mockito.verify;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +9,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.service.UserRegistrationService;
+
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringRunner.class)
@@ -25,10 +24,10 @@ public class RegistrationControllerTest {
 
 	@MockBean
 	private UserRegistrationService userService;
-	
+
 	@MockBean
 	private User user;
-	
+
 	@Autowired
 	private MockMvc mockMvc;
 
@@ -36,7 +35,7 @@ public class RegistrationControllerTest {
 	private RegistrationController registrationController = new RegistrationController(userService);
 
 	private static String userInJson(String name, String password) {
-		return "{ \"name\": \"" + name + "\", " + 
+		return "{ \"name\": \"" + name + "\", " +
 				"\"password\":\"" + password + "\"}";
 	}
 
@@ -48,7 +47,7 @@ public class RegistrationControllerTest {
 				.content(userInJson("user1", "1234567")))
 				.andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldSaveUser() throws Exception {
 		registrationController.registerUser(user);

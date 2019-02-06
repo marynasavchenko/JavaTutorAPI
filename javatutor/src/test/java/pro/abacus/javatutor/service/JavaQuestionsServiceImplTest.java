@@ -1,17 +1,16 @@
 package pro.abacus.javatutor.service;
 
-import static org.mockito.Mockito.verify;
-
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
+
+import java.util.ArrayList;
+
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JavaQuestionsServiceImplTest {
@@ -30,7 +29,7 @@ public class JavaQuestionsServiceImplTest {
 	}
 
 	@Test
-	public void shouldFindAllQuestions() throws Exception{
+	public void shouldFindAllQuestions() throws Exception {
 		javaQuestionService.findAllQuestions();
 		verify(javaQuestionRepository).findAll();
 	}

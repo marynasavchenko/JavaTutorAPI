@@ -1,16 +1,12 @@
 package pro.abacus.javatutor.controller;
 
-import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.service.JavaQuestionsService;
+
+import java.util.Collection;
 
 /**
  * REST controller for managing java questions.
@@ -25,7 +21,7 @@ public class QuestionRestController {
 	public QuestionRestController(JavaQuestionsService javaQuestionsService) {
 		this.javaQuestionsService = javaQuestionsService;
 	}
-	
+
 	/**
 	 * GET /javaquestions : return java questions.
 	 */

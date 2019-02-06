@@ -1,11 +1,10 @@
- package pro.abacus.javatutor.service;
-
-import java.util.Collection;
+package pro.abacus.javatutor.service;
 
 import org.springframework.stereotype.Service;
-
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.repository.JavaQuestionRepository;
+
+import java.util.Collection;
 
 @Service
 public class JavaQuestionsServiceImpl implements JavaQuestionsService {

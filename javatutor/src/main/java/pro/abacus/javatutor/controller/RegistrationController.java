@@ -35,5 +35,4 @@ public class RegistrationController {
 		log.info("saving user" + user);
 	}
 
-
 }

@@ -1,10 +1,10 @@
 package pro.abacus.javatutor.domain;
 
-import java.util.Objects;
-
-import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /**
  * An authority (a security role) used by Spring Security.
@@ -32,7 +32,7 @@ public class Authority {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		
+
 		if (obj == null || (getClass() != obj.getClass()))
 			return false;
 

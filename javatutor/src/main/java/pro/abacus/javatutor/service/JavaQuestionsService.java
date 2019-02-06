@@ -9,5 +9,6 @@ import java.util.Collection;
  */
 public interface JavaQuestionsService {
 	Collection<JavaQuestion> findAllQuestions();
+
 	void saveAllQuestions(Collection<JavaQuestion> javaQuestions);
 }

@@ -17,27 +17,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataMongoTest
 //(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 public class AuthorityRepositoryTest {
-	
+
 	private Authority authorityUser;
-	
+
 	@Autowired
 	private AuthorityRepository authorityRepository;
-	
+
 	@Autowired
 	private MongoTemplate mongoTemplate;
-	
+
 	@Before
 	public void setup() {
 		authorityUser = new Authority("USER");
 	}
-	
+
 	@Test
 	public void shouldLookUpAuthorities() {
 		mongoTemplate.save(authorityUser);
-		
-		List<Authority> foundAuthority= authorityRepository.findAll();
+
+		List<Authority> foundAuthority = authorityRepository.findAll();
 		assertThat(foundAuthority.get(0).getAuthorityName()).isEqualTo("USER");
-		
+
 	}
 
 }

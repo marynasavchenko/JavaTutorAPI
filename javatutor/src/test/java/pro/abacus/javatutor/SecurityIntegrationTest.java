@@ -18,11 +18,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class SecurityIntegrationTest {
 
-	private static final String JAVA_QUESTIONS  = "/api/javaquestions/";
-	
+	private static final String JAVA_QUESTIONS = "/api/javaquestions/";
+
 	@Autowired
 	private MockMvc mockMvc;
-	
+
 	@Test
 	public void shouldRedirectToLoginWhenAccessProtectedEndpoint() throws Exception {
 		this.mockMvc.perform(get(JAVA_QUESTIONS))

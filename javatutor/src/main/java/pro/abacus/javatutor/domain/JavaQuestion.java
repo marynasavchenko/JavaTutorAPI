@@ -1,9 +1,10 @@
 package pro.abacus.javatutor.domain;
 
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.Objects;
 
 /**
  * A JavaQuestion entity class.
@@ -66,7 +67,7 @@ public class JavaQuestion {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		
+
 		if (obj == null || (getClass() != obj.getClass()))
 			return false;
 

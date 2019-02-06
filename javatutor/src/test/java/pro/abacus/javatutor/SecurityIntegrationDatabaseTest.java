@@ -20,14 +20,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SecurityIntegrationDatabaseTest {
-	private static final String SIGN_IN  = "/api/signin";
-	private static final String JAVA_QUESTIONS  = "/api/javaquestions/";
+	private static final String SIGN_IN = "/api/signin";
+	private static final String JAVA_QUESTIONS = "/api/javaquestions/";
 
-	private static final String VALID_LOGIN  = "Tom";
-	private static final String VALID_PASSWORD  = "qwerty";
+	private static final String VALID_LOGIN = "Tom";
+	private static final String VALID_PASSWORD = "qwerty";
 
-	private static final String INVALID_LOGIN  = "invalidLogin";
-	private static final String INVALID_PASSWORD  = "invalidPassword";
+	private static final String INVALID_LOGIN = "invalidLogin";
+	private static final String INVALID_PASSWORD = "invalidPassword";
 
 	@Autowired
 	private MockMvc mockMvc;
