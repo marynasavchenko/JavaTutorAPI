@@ -24,6 +24,8 @@ public class QuestionRestController {
 
 	/**
 	 * GET /javaquestions : return java questions.
+	 *
+	 * @return collection of java questions
 	 */
 	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@GetMapping(value = "/javaquestions")
@@ -33,6 +35,8 @@ public class QuestionRestController {
 
 	/**
 	 * POST /javaquestions : save java questions.
+	 *
+	 * @param javaQuestions collection of java questions to be saved
 	 */
 	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@PostMapping(value = "/javaquestions", consumes = "application/json")
