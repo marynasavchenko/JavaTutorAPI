@@ -28,6 +28,8 @@ public class RegistrationController {
 
 	/**
 	 * POST /signup : register the user.
+	 *
+	 * @param user the user to be registered
 	 */
 	@PostMapping(value = "/signup", consumes = "application/json")
 	public void registerUser(@RequestBody User user) {
