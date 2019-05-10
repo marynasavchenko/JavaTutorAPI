@@ -1,7 +1,6 @@
 package pro.abacus.javatutor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pro.abacus.javatutor.domain.JavaQuestion;
 import pro.abacus.javatutor.service.JavaQuestionsService;
@@ -27,7 +26,6 @@ public class QuestionRestController {
 	 *
 	 * @return collection of java questions
 	 */
-	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@GetMapping(value = "/javaquestions")
 	public Collection<JavaQuestion> readAllJavaQuestions() {
 		return this.javaQuestionsService.findAllQuestions();
@@ -38,7 +36,6 @@ public class QuestionRestController {
 	 *
 	 * @param javaQuestions collection of java questions to be saved
 	 */
-	@PreAuthorize("hasAuthority('ROLE_USER')")
 	@PostMapping(value = "/javaquestions", consumes = "application/json")
 	public void writeJavaQuestions(@RequestBody Collection<JavaQuestion> javaQuestions) {
 		javaQuestionsService.saveAllQuestions(javaQuestions);
