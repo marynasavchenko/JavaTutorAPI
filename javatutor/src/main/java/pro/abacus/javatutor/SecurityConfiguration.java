@@ -4,9 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -17,9 +15,7 @@ import pro.abacus.javatutor.security.AuthFailureHandler;
 import pro.abacus.javatutor.security.AuthSuccessHandler;
 import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
 
-@Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	final static Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
@@ -66,15 +62,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.failureHandler(authFailureHandler())
 				.usernameParameter("username")
 				.passwordParameter("password")
-				.permitAll()
 				.and()
 				.rememberMe()
 				.and()
 				.authorizeRequests()
-				.antMatchers("/api/signin").permitAll()
-				.antMatchers("/api/signup").permitAll()
-				.antMatchers("/api/javaquestions/**").authenticated()
-				.anyRequest()
+				.antMatchers("/api/javaquestions/**")
+				.hasRole("USER")
+				.antMatchers("/api/signin", "/api/signup")
 				.permitAll()
 				.and()
 				.logout()
