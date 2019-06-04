@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import pro.abacus.javatutor.domain.Authority;
 import pro.abacus.javatutor.domain.User;
@@ -28,9 +27,6 @@ public class UserRepositoryTest {
 	private Authority authority;
 
 	@Autowired
-	private MongoTemplate mongoTemplate;
-
-	@Autowired
 	UserRepository userRepository;
 
 	@Before
@@ -43,12 +39,12 @@ public class UserRepositoryTest {
 
 	@After
 	public void tearDown() {
-		mongoTemplate.getDb().drop();
+		userRepository.deleteAll();
 	}
 
 	@Test
 	public void shouldLookUpSavedAccount() {
-		mongoTemplate.save(user);
+		userRepository.save(user);
 		User foundAccount = userRepository.findByUsername(USER_NAME);
 		assertEquals(PASSWORD, foundAccount.getPassword());
 	}
