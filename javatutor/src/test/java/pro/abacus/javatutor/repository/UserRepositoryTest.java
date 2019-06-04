@@ -23,7 +23,7 @@ public class UserRepositoryTest {
 	private static final String PASSWORD = "1234pass";
 	private static final String AUTHORITY_USER = "USER";
 
-	private User account;
+	private User user;
 
 	private Authority authority;
 
@@ -31,14 +31,14 @@ public class UserRepositoryTest {
 	private MongoTemplate mongoTemplate;
 
 	@Autowired
-	UserRepository accountRepository;
+	UserRepository userRepository;
 
 	@Before
 	public void setUp() {
 		authority = new Authority(AUTHORITY_USER);
 		HashSet<Authority> authorities = new HashSet<>();
 		authorities.add(authority);
-		account = new User(USER_NAME, PASSWORD, authorities);
+		user = new User(USER_NAME, PASSWORD, authorities);
 	}
 
 	@After
@@ -48,8 +48,8 @@ public class UserRepositoryTest {
 
 	@Test
 	public void shouldLookUpSavedAccount() {
-		mongoTemplate.save(account);
-		User foundAccount = accountRepository.findByUsername(USER_NAME);
+		mongoTemplate.save(user);
+		User foundAccount = userRepository.findByUsername(USER_NAME);
 		assertEquals(PASSWORD, foundAccount.getPassword());
 	}
 
