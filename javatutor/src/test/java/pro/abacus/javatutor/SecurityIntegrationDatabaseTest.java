@@ -39,7 +39,7 @@ public class SecurityIntegrationDatabaseTest {
 	}
 
 	@Test
-	public void shouldAccessProtectedEndpoinAfterSuccessfulLogin() throws Exception {
+	public void shouldAccessProtectedEndpointAfterSuccessfulLogin() throws Exception {
 		MvcResult mvcResult = this.mockMvc.perform(formLogin(SIGN_IN).user(VALID_LOGIN).password(VALID_PASSWORD))
 				.andExpect(authenticated())
 				.andReturn();
