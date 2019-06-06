@@ -35,10 +35,6 @@ public class JavaQuestion {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public User getAccount() {
 		return account;
 	}
