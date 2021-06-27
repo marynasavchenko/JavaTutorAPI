@@ -14,9 +14,9 @@ public class UserDetailsServiceImplTest {
 
 	private static final String ANY_USER_NAME = "Brigette";
 
-	private UserRepository userRepository = mock(UserRepository.class);
+	private final UserRepository userRepository = mock(UserRepository.class);
 
-	private User user = mock(User.class);
+	private final User user = mock(User.class);
 
 	UserDetailsService userDetailService = new UserDetailsServiceImpl(userRepository);
 

@@ -34,7 +34,6 @@ public class JavaQuestionRepositoryTest {
 	private List<JavaQuestion> questionList;
 
 	private User account;
-	private User account2;
 
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -45,7 +44,6 @@ public class JavaQuestionRepositoryTest {
 	@Before
 	public void setUp() {
 		account = new User(USER_NAME_1, PASSWORD_1);
-		account2 = new User(USER_NAME_2, PASSWORD_2);
 		javaQuestion = new JavaQuestion(account, QUESTION_1, ANSWER_1);
 		javaQuestion2 = new JavaQuestion(account, QUESTION_2, ANSWER_2);
 		questionList = new ArrayList<>();

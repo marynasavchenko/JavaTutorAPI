@@ -36,7 +36,7 @@ public class RegistrationControllerTest {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private RegistrationController registrationController = new RegistrationController(userService);
+	final private RegistrationController registrationController = new RegistrationController(userService);
 
 	private static String userInJson(String name, String password) {
 		return "{ \"name\": \"" + name + "\", " +

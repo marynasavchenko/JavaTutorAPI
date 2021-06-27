@@ -36,7 +36,7 @@ public class QuestionRestControllerTest {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private QuestionRestController questionRestController = new QuestionRestController(javaQuestionsService);
+	final private QuestionRestController questionRestController = new QuestionRestController(javaQuestionsService);
 
 	public static String javaQuestionInJson(String question, String answer) {
 		return "[{ \"question\": \"" + question + "\", " +
@@ -61,9 +61,9 @@ public class QuestionRestControllerTest {
 
 	@Test
 	public void shouldSaveJavaQuestions() {
-		Collection<JavaQuestion> collection = new ArrayList<>();
-		questionRestController.writeJavaQuestions(collection);
-		verify(javaQuestionsService).saveAllQuestions(collection);
+		Collection<JavaQuestion> questionList = new ArrayList<>();
+		questionRestController.writeJavaQuestions(questionList);
+		verify(javaQuestionsService).saveAllQuestions(questionList);
 
 	}
 
