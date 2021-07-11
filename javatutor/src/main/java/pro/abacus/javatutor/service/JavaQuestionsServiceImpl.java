@@ -9,7 +9,7 @@ import java.util.Collection;
 @Service
 public class JavaQuestionsServiceImpl implements JavaQuestionsService {
 
-	private JavaQuestionRepository javaQuestionRepository;
+	private final JavaQuestionRepository javaQuestionRepository;
 
 	public JavaQuestionsServiceImpl(JavaQuestionRepository javaQuestionRepository) {
 		this.javaQuestionRepository = javaQuestionRepository;

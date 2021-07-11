@@ -1,7 +1,5 @@
 package pro.abacus.javatutor.security;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +10,6 @@ import java.util.stream.Collectors;
 
 
 public class UserDetailsImpl extends User implements UserDetails {
-	final static Logger log = LoggerFactory.getLogger(UserDetailsImpl.class);
 
 	private static final long serialVersionUID = 1L;
 

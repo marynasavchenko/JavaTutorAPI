@@ -14,7 +14,7 @@ import java.util.Collection;
 @RequestMapping("/api")
 public class QuestionRestController {
 
-	private JavaQuestionsService javaQuestionsService;
+	private final JavaQuestionsService javaQuestionsService;
 
 	@Autowired
 	public QuestionRestController(JavaQuestionsService javaQuestionsService) {

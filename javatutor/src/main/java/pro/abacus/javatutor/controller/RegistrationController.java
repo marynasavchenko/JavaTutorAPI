@@ -17,9 +17,9 @@ import pro.abacus.javatutor.service.UserRegistrationService;
 @RequestMapping("/api")
 public class RegistrationController {
 
-	final static Logger log = LoggerFactory.getLogger(RegistrationController.class);
+	final static Logger LOG = LoggerFactory.getLogger(RegistrationController.class);
 
-	private UserRegistrationService userRegistrationService;
+	private final UserRegistrationService userRegistrationService;
 
 	@Autowired
 	public RegistrationController(UserRegistrationService userRegistrationService) {
@@ -34,7 +34,7 @@ public class RegistrationController {
 	@PostMapping(value = "/signup", consumes = "application/json")
 	public void registerUser(@RequestBody User user) {
 		userRegistrationService.saveUserAccount(user);
-		log.info("saving user" + user);
+		LOG.info("saving user" + user);
 	}
 
 }

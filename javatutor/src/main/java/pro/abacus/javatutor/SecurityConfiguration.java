@@ -1,7 +1,5 @@
 package pro.abacus.javatutor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,9 +16,7 @@ import pro.abacus.javatutor.security.LogoutSuccessHandlerImpl;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	final static Logger log = LoggerFactory.getLogger(SecurityConfiguration.class);
-
-	private UserDetailsService userDetailsService;
+	private final UserDetailsService userDetailsService;
 
 	@Autowired
 	public SecurityConfiguration(UserDetailsService userDetailsService) {

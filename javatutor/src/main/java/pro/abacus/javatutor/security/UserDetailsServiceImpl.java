@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import pro.abacus.javatutor.domain.User;
 import pro.abacus.javatutor.repository.UserRepository;
 
@@ -17,18 +16,18 @@ import pro.abacus.javatutor.repository.UserRepository;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	final static Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
-	private UserRepository accountRepository;
+    private final UserRepository accountRepository;
 
-	@Autowired
-	public UserDetailsServiceImpl(UserRepository accountRepository) {
-		this.accountRepository = accountRepository;
-	}
+    @Autowired
+    public UserDetailsServiceImpl(UserRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		log.trace("Load user by username" + username);
+		LOG.trace("Load user by username" + username);
 		User user = accountRepository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException(username);
