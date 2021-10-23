@@ -22,8 +22,6 @@ public class JavaQuestionRepositoryTest {
 
 	private static final String USER_NAME_1 = "Tom";
 	private static final String PASSWORD_1 = "12345678";
-	private static final String USER_NAME_2 = "Bridgette";
-	private static final String PASSWORD_2 = "22345678";
 	private static final String QUESTION_1 = "question1";
 	private static final String QUESTION_2 = "question2";
 	private static final String ANSWER_1 = "answer1";
